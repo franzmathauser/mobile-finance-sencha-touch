@@ -1,0 +1,52 @@
+.filialfinder-entry img {
+	float:left;
+	height:44px;
+	border:1px solid;
+	margin-right:3px;
+}
+
+
+.filialfinder-details {
+	background-color: #CCCCCC;
+}
+.filialfinder-details h1{
+	font-size:120%;
+}
+.filialfinder-details h3{
+	font-size:90%;
+}
+.filialfinder-details img {
+	float:left;
+	border:1px solid;
+	margin-right:3px;
+	height:50px;
+}
+
+.x-slidenavigation-list img {
+	float:left;
+	width:22px; 
+	height:22px; 
+	margin-right:5px;
+}
+.green {
+	color:green;
+}
+
+.red {
+	color:red;
+}
+
+.transaction-entry {
+	height:68px;
+}
+
+.transaction-entry img {
+	height:40px;
+	padding-right:5px;
+}
+
+.transaction-amount {
+	font-size:200%;
+	float:right;
+	margin-right: 300px;
+}
