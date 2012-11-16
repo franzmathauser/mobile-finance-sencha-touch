@@ -3,7 +3,7 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 	config:{
 		
-		views: ['Home', 'FilialfinderContainer', 'FilialfinderPanel', 'FilialfinderDetails', 'TransactionPanel'],
+		views: ['Home', 'FilialfinderContainer', 'FilialfinderPanel', 'FilialfinderDetails', 'TransactionPanel', 'ChartsCarousel', 'BarChartContainer', 'PieChartContainer', 'BarChartPanel', 'PieChartPanel'],
 		controllers: ['AuthController', 'LoginController'],
 		models: ['Filiale', 'Transaction'],
 		stores: ['Filialen', 'Transactions'],
@@ -29,8 +29,6 @@ Ext.define('MobileFinance.controller.HomeController', {
 				activate : 'loadTransactionList'
 			}
 		}
-
-
 
 	},
 

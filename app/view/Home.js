@@ -3,7 +3,7 @@ Ext.define('MobileFinance.view.Home', {
     xtype: 'homescreen',
 
     requires: [
-        
+        //'MobileFinance.view.PieChartPanel'
     ],
 
     config: {
@@ -82,7 +82,7 @@ Ext.define('MobileFinance.view.Home', {
                     left: '50px',
                     action: 'doTransactionRefresh'
                 }],
-            },{
+                },{
                     xtype: 'transactionpanel'
             }]
         },
@@ -129,7 +129,11 @@ Ext.define('MobileFinance.view.Home', {
                 xtype: 'toolbar',
                 title: 'Statistik',
                 docked: 'top'
-            }]
+                },
+                {
+                    xtype: 'charts-carousel'
+                }
+            ]
         },
         {
             title: 'Chat',

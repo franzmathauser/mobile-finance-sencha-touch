@@ -12,7 +12,7 @@ Ext.define('MobileFinance.view.TransactionPanel', {
                 xtype: 'list',
                 store: 'Transactions',
                 itemTpl: '<span class="transaction-amount <tpl if="amount &gt; 0">green<tpl else>red</tpl>">{amount} &euro;</span>'+
-                  '<img src="resources/icons/categories/{category}.png" style="float:left;"/>'+
+                  '<img src="{categoryIcon}" style="float:left;"/>'+
                   '<h1>{name:ellipsis(22)}</h1>'+
                   '<h3>{purpose:ellipsis(40)}</h3>',
                   
