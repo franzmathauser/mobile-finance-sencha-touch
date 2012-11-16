@@ -12,7 +12,7 @@ Ext.application({
 
     requires: ['Ext.MessageBox', 'Ext.Anim'],
 
-    controllers: ['Main', 'Login', 'Auth', 'Home', 'Places', 'GeoLocation', 'Transaction'],
+    controllers: ['MainController', 'LoginController', 'AuthController', 'HomeController', 'PlacesController', 'GeoLocationController', 'TransactionController'],
 
     views: ['Main'],
 
