@@ -5,10 +5,13 @@ Copyright (c) 2011-2012 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
@@ -8975,6 +8978,11 @@ Ext.apply(Ext, {
             elementSize: {
                 xclass: 'Ext.event.publisher.ElementSize'
             }
+            //<feature charts>
+            ,seriesItemEvents: {
+                xclass: 'Ext.chart.series.ItemPublisher'
+            }
+            //</feature>
         },
 
         //<feature logger>
@@ -14366,7 +14374,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.field.Hidden": [
     "Ext.form.Hidden"
   ],
-  "Ext.env.Feature": [],
   "Ext.field.Number": [
     "Ext.form.Number"
   ],
@@ -14391,7 +14398,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.data.NodeInterface": [
     "Ext.data.Node"
   ],
-  "Ext.env.OS": [],
   "Ext.chart.interactions.PanZoom": [],
   "Ext.util.PositionMap": [],
   "Ext.chart.series.ItemPublisher": [],
@@ -14407,9 +14413,6 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.Direct.Transaction"
   ],
   "Ext.util.Offset": [],
-  "Ext.dom.Element": [
-    "Ext.Element"
-  ],
   "Ext.device.device.Abstract": [],
   "Ext.mixin.Mixin": [],
   "Ext.fx.animation.FadeOut": [],
@@ -14460,7 +14463,6 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.data.BelongsToAssociation"
   ],
   "Ext.draw.Surface": [],
-  "Ext.dom.Query": [],
   "Ext.scroll.indicator.ScrollPosition": [],
   "Ext.field.Email": [
     "Ext.form.Email"
@@ -14510,11 +14512,11 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.fx.Easing": [],
   "Ext.chart.series.sprite.Scatter": [],
-  "Ext.picker.Date": [
-    "Ext.DatePicker"
-  ],
   "Ext.data.reader.Array": [
     "Ext.data.ArrayReader"
+  ],
+  "Ext.picker.Date": [
+    "Ext.DatePicker"
   ],
   "Ext.data.proxy.JsonP": [
     "Ext.data.ScriptTagProxy"
@@ -14548,10 +14550,10 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.data.HttpProxy",
     "Ext.data.AjaxProxy"
   ],
-  "Ext.layout.Default": [],
   "Ext.fx.animation.Fade": [
     "Ext.fx.animation.FadeIn"
   ],
+  "Ext.layout.Default": [],
   "Ext.util.paintmonitor.CssAnimation": [],
   "Ext.data.writer.Writer": [
     "Ext.data.DataWriter",
@@ -14703,10 +14705,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.data.Request": [],
   "Ext.draw.sprite.Text": [],
   "Ext.layout.Float": [],
-  "Ext.dom.CompositeElementLite": [
-    "Ext.CompositeElementLite",
-    "Ext.CompositeElement"
-  ],
   "Ext.dataview.component.DataItem": [],
   "Ext.chart.CartesianChart": [
     "Ext.chart.Chart"
@@ -14731,13 +14729,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.event.publisher.ComponentSize": [],
   "Ext.slider.Toggle": [],
   "Ext.data.identifier.Sequential": [],
-  "Ext.AbstractComponent": [],
   "Ext.Template": [],
+  "Ext.AbstractComponent": [],
   "Ext.device.Push": [],
   "Ext.fx.easing.BoundMomentum": [],
   "Ext.viewport.Viewport": [],
-  "Ext.event.recognizer.VerticalSwipe": [],
   "Ext.chart.series.Polar": [],
+  "Ext.event.recognizer.VerticalSwipe": [],
   "Ext.event.Event": [
     "Ext.EventObject"
   ],
@@ -14752,15 +14750,14 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.chart.series.sprite.Line": [],
   "Ext.data.ArrayStore": [],
   "Ext.data.proxy.SQL": [],
-  "Ext.event.recognizer.Rotate": [],
   "Ext.mixin.Sortable": [],
   "Ext.fx.layout.card.Flip": [],
   "Ext.chart.interactions.CrossZoom": [],
   "Ext.event.publisher.ComponentPaint": [],
+  "Ext.event.recognizer.Rotate": [],
   "Ext.util.TranslatableList": [],
   "Ext.carousel.Item": [],
   "Ext.event.recognizer.Swipe": [],
-  "Ext.mixin.Identifiable": [],
   "Ext.util.translatable.ScrollPosition": [],
   "Ext.device.camera.Simulator": [],
   "Ext.chart.series.sprite.Area": [],
@@ -14794,7 +14791,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.chart.axis.segmenter.Time": [],
   "Ext.util.Draggable": [],
   "Ext.device.contacts.Sencha": [],
-  "Ext.dom.Helper": [],
   "Ext.chart.grid.HorizontalGrid": [],
   "Ext.mixin.Traversable": [],
   "Ext.util.AbstractMixedCollection": [],
@@ -14852,7 +14848,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.direct.Manager": [
     "Ext.Direct"
   ],
-  "Ext.env.Browser": [],
   "Ext.data.proxy.Proxy": [
     "Ext.data.DataProxy",
     "Ext.data.Proxy"
@@ -14989,7 +14984,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.field.Hidden": [
     "widget.hiddenfield"
   ],
-  "Ext.env.Feature": [],
   "Ext.field.Number": [
     "widget.numberfield"
   ],
@@ -15013,7 +15007,6 @@ Ext.ClassManager.addNameAlternateMappings({
     "direct.remotingprovider"
   ],
   "Ext.data.NodeInterface": [],
-  "Ext.env.OS": [],
   "Ext.chart.interactions.PanZoom": [
     "interaction.panzoom"
   ],
@@ -15031,9 +15024,6 @@ Ext.ClassManager.addNameAlternateMappings({
     "direct.transaction"
   ],
   "Ext.util.Offset": [],
-  "Ext.dom.Element": [
-    "widget.element"
-  ],
   "Ext.device.device.Abstract": [],
   "Ext.mixin.Mixin": [],
   "Ext.fx.animation.FadeOut": [
@@ -15098,7 +15088,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.draw.Surface": [
     "widget.surface"
   ],
-  "Ext.dom.Query": [],
   "Ext.scroll.indicator.ScrollPosition": [],
   "Ext.field.Email": [
     "widget.emailfield"
@@ -15164,11 +15153,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.chart.series.sprite.Scatter": [
     "sprite.scatterSeries"
   ],
-  "Ext.picker.Date": [
-    "widget.datepicker"
-  ],
   "Ext.data.reader.Array": [
     "reader.array"
+  ],
+  "Ext.picker.Date": [
+    "widget.datepicker"
   ],
   "Ext.data.proxy.JsonP": [
     "proxy.jsonp",
@@ -15212,13 +15201,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.data.proxy.Ajax": [
     "proxy.ajax"
   ],
-  "Ext.layout.Default": [
-    "layout.default",
-    "layout.auto"
-  ],
   "Ext.fx.animation.Fade": [
     "animation.fade",
     "animation.fadeIn"
+  ],
+  "Ext.layout.Default": [
+    "layout.default",
+    "layout.auto"
   ],
   "Ext.util.paintmonitor.CssAnimation": [],
   "Ext.data.writer.Writer": [
@@ -15425,7 +15414,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.Float": [
     "layout.float"
   ],
-  "Ext.dom.CompositeElementLite": [],
   "Ext.dataview.component.DataItem": [
     "widget.dataitem"
   ],
@@ -15461,13 +15449,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.data.identifier.Sequential": [
     "data.identifier.sequential"
   ],
-  "Ext.AbstractComponent": [],
   "Ext.Template": [],
+  "Ext.AbstractComponent": [],
   "Ext.device.Push": [],
   "Ext.fx.easing.BoundMomentum": [],
   "Ext.viewport.Viewport": [],
-  "Ext.event.recognizer.VerticalSwipe": [],
   "Ext.chart.series.Polar": [],
+  "Ext.event.recognizer.VerticalSwipe": [],
   "Ext.event.Event": [],
   "Ext.behavior.Behavior": [],
   "Ext.chart.grid.VerticalGrid": [
@@ -15494,7 +15482,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.data.proxy.SQL": [
     "proxy.sql"
   ],
-  "Ext.event.recognizer.Rotate": [],
   "Ext.mixin.Sortable": [],
   "Ext.fx.layout.card.Flip": [
     "fx.layout.card.flip"
@@ -15503,10 +15490,10 @@ Ext.ClassManager.addNameAlternateMappings({
     "interaction.crosszoom"
   ],
   "Ext.event.publisher.ComponentPaint": [],
+  "Ext.event.recognizer.Rotate": [],
   "Ext.util.TranslatableList": [],
   "Ext.carousel.Item": [],
   "Ext.event.recognizer.Swipe": [],
-  "Ext.mixin.Identifiable": [],
   "Ext.util.translatable.ScrollPosition": [],
   "Ext.device.camera.Simulator": [],
   "Ext.chart.series.sprite.Area": [
@@ -15564,7 +15551,6 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.util.Draggable": [],
   "Ext.device.contacts.Sencha": [],
-  "Ext.dom.Helper": [],
   "Ext.chart.grid.HorizontalGrid": [
     "grid.horizontal"
   ],
@@ -15649,7 +15635,6 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.behavior.Translatable": [],
   "Ext.direct.Manager": [],
-  "Ext.env.Browser": [],
   "Ext.data.proxy.Proxy": [
     "proxy.proxy"
   ],

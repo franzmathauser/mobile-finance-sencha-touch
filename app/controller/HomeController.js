@@ -3,7 +3,7 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 	config:{
 		
-		views: ['Home', 'FilialfinderContainer', 'FilialfinderPanel', 'FilialfinderDetails', 'TransactionPanel', 'PieChartPanel'],
+		views: ['Home', 'FilialfinderContainer', 'FilialfinderPanel', 'FilialfinderDetails', 'TransactionPanel'],
 		controllers: ['AuthController', 'LoginController'],
 		models: ['Filiale', 'Transaction'],
 		stores: ['Filialen', 'Transactions'],

@@ -20,13 +20,13 @@ Ext.define('MobileFinance.controller.AuthController', {
 		// Event before a Ajax-Request is executed
 		Ext.Ajax.on('beforerequest', function(conn, options) {
 			console.log('before:' + arguments);
-			this.loadingMask.show();
+			//this.loadingMask.show();
 		}, this );
 
 		// Event on successful Ajax-Request
 		Ext.Ajax.on('requestcomplete', function(conn, response, options) {
 			console.log('complete:' + arguments);
-			this.loadingMask.hide();
+			//this.loadingMask.hide();
 		}, this );
 
 		// Event on HTTP-Errors Ajax-Request
@@ -50,12 +50,14 @@ Ext.define('MobileFinance.controller.AuthController', {
 
 	}, 
 
+	/*
 	loadingMask: new Ext.LoadMask(Ext.getBody(), {
             message: "L&auml;dt...",
             itemId: "loadMask",
             indicator:true,
             hidden: true
     }),
+	*/
 
 	/**
 	* @function unauthorizedHandler
