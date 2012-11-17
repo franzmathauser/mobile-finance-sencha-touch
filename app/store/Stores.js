@@ -1,8 +1,8 @@
-Ext.define('MobileFinance.store.Filialen',{
+Ext.define('MobileFinance.store.Stores',{
     extend: 'Ext.data.Store',
     
     config: {
-        model: 'MobileFinance.model.Filiale',
+        model: 'MobileFinance.model.Store',
         autoLoad: false,
         grouper: {
             groupFn: function(record) {

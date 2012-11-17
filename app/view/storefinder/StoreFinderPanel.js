@@ -1,7 +1,7 @@
-Ext.define('MobileFinance.view.FilialfinderPanel', {
+Ext.define('MobileFinance.view.storefinder.StoreFinderPanel', {
    extend: 'Ext.Panel',
    
-   alias: 'widget.filialfinderpanel',
+   alias: 'widget.storefinder-panel',
    
    config: {
        title: 'Filialfinder',
@@ -11,7 +11,7 @@ Ext.define('MobileFinance.view.FilialfinderPanel', {
         items: [
             {
                 xtype: 'list',
-                store: 'Filialen',
+                store: 'Stores',
                 itemTpl: '<img src="{icon}" /><h1>{name:ellipsis(22)}</h1><h3>{vicinity:ellipsis(40)}</h3>', 
                 itemCls: 'filialfinder-entry',
                 grouped: true,

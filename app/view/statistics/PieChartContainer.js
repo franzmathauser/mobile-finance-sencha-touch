@@ -1,4 +1,4 @@
-Ext.define('MobileFinance.view.PieChartContainer', {
+Ext.define('MobileFinance.view.statistics.PieChartContainer', {
    extend: 'Ext.Panel',
    alias: 'widget.pie-chart-container',
 

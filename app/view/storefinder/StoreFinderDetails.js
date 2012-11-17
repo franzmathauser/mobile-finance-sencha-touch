@@ -1,7 +1,7 @@
-Ext.define('MobileFinance.view.FilialfinderDetails', {
+Ext.define('MobileFinance.view.storefinder.StoreFinderDetails', {
    extend: 'Ext.Panel',
-   alias : 'widget.filialfinderdetailspanel',
-   xtype: 'filialfinderdetailspanel',
+   alias : 'widget.storefinder-details',
+   xtype: 'storefinder-details',
 
 
    config: {

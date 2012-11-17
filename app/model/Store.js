@@ -1,4 +1,4 @@
-Ext.define('MobileFinance.model.Filiale', {
+Ext.define('MobileFinance.model.Store', {
    extend: 'Ext.data.Model',
    
    config: {

@@ -106,7 +106,7 @@ Ext.define('MobileFinance.view.Home', {
                 docked: 'top'
             },
             {
-                xtype: 'filialfindercontainer'
+                xtype: 'storefinder-container'
             }
             // weitere elemente
             ]

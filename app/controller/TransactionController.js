@@ -1,6 +1,9 @@
 Ext.define('MobileFinance.controller.TransactionController',{
     extend: 'Ext.app.Controller',
     
+    requires: [
+        'Ext.data.Store',
+    ],
 
     config: {
         views: ["TransactionPanel"],

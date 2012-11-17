@@ -3,41 +3,45 @@ Ext.define('MobileFinance.controller.GeoLocationController',{
     
 
     config: {
-        views: ["FilialfinderContainer", "FilialfinderDetails", "FilialfinderPanel"],
+        views: [
+            "storefinder.StoreFinderContainer",
+            "storefinder.StoreFinderDetails",
+            "storefinder.StoreFinderPanel"
+        ],
 
         refs: {
-            filialFinderDetails: 'filialfindercontainer filialfinderdetailspanel',
-            filialFinderMap : 'filialfindercontainer map',
-            filialFinderList : 'filialfindercontainer filialfinderpanel list'
+            storeFinderDetails: 'storefinder-container storefinder-details',
+            storeFinderMap : 'storefinder-container map',
+            storeFinderList : 'storefinder-container storefinder-panel list'
         },
 
         control: {
-            filialFinderList :{
+            storeFinderList :{
 
                 select: function(list, record, eOpts ) {
 
-                    var filialFinderDetailsView = this.getFilialFinderDetails();
+                    var storeFinderDetailsView = this.getStoreFinderDetails();
 
 
-                    filialFinderDetailsView.setData(record.data);
+                    storeFinderDetailsView.setData(record.data);
                     
-                    var filialFinderMap = this.getFilialFinderMap();
+                    var storeFinderMap = this.getStoreFinderMap();
                     var location = record.get('geometry').location;
                     var coords = new google.maps.LatLng(location.lat, location.lng);
-                    filialFinderMap.setMapCenter(coords);
+                    storeFinderMap.setMapCenter(coords);
                     
-                    console.log(filialFinderMap.getMap());
-                    this.currentMarker.setMap(filialFinderMap.getMap());
+                    console.log(storeFinderMap.getMap());
+                    this.currentMarker.setMap(storeFinderMap.getMap());
                     this.currentMarker.setPosition(coords);
 
-                    filialFinderDetailsView.show();
+                    storeFinderDetailsView.show();
                     this.currentItemId = record.get('id');
                     
                }, 
 
                deselect: function(list, record, supressed, eOpts){
-                    var filialFinderDetailsView = this.getFilialFinderDetails();
-                    filialFinderDetailsView.hide();
+                    var storeFinderDetailsView = this.getStoreFinderDetails();
+                    storeFinderDetailsView.hide();
                }
            }
         }
@@ -60,15 +64,15 @@ Ext.define('MobileFinance.controller.GeoLocationController',{
                     
                     var lat = position.coords.latitude;
                     var lon = position.coords.longitude;
-                    var filialen = Ext.getStore('Filialen');
-                    var filialenProxy = filialen.getProxy();
-                    var map = this.getFilialFinderMap();
+                    var stores = Ext.getStore('Stores');
+                    var storesProxy = stores.getProxy();
+                    var map = this.getStoreFinderMap();
 
                     map.setMapCenter(new google.maps.LatLng(lat, lon));
                    
-                    filialenProxy.setUrl('https://pc42366.de.softlab.net:8181/JavaBackend/rest/secure/places?location='+lat+','+lon);
-                    console.log(filialenProxy);
-                    filialen.load();
+                    storesProxy.setUrl('https://pc42366.de.softlab.net:8181/JavaBackend/rest/secure/places?location='+lat+','+lon);
+                    console.log(storesProxy);
+                    stores.load();
                 },
                 failure: function() {
                     console.log('something went wrong with geolocation!');

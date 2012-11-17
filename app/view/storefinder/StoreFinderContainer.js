@@ -1,13 +1,16 @@
-Ext.define('MobileFinance.view.FilialfinderContainer', {
+Ext.define('MobileFinance.view.storefinder.StoreFinderContainer', {
    extend: 'Ext.Container',
    
-   alias: 'widget.filialfindercontainer',
-   xtype: 'filialfindercontainer',
+   alias: 'widget.storefinder-container',
+   xtype: 'storefinder-container',
    
    requires: [ 'Ext.device.Communicator',
         'Ext.device.camera.PhoneGap',
         'Ext.device.camera.Sencha',
-        'Ext.device.camera.Simulator', 'Ext.device.Geolocation', 'Ext.Map'],
+        'Ext.device.camera.Simulator', 
+        'Ext.device.Geolocation', 
+        'Ext.Map'
+  ],
 
 
    config: {
@@ -16,7 +19,7 @@ Ext.define('MobileFinance.view.FilialfinderContainer', {
        iconCls: 'maps',
        items: [
            {
-               xtype: 'filialfinderpanel',
+               xtype: 'storefinder-panel',
                width: 400,
                docked: 'left',
            },{
@@ -24,9 +27,9 @@ Ext.define('MobileFinance.view.FilialfinderContainer', {
                layout: 'vbox',
                items: [
                    {
-                       xtype: 'filialfinderdetailspanel',
+                       xtype: 'storefinder-details',
                        flex: 1,
-                       baseCls: 'filialfinder-details',
+                       baseCls: 'storefinder-details',
 
                    },{
                        xtype: 'map',

@@ -16,9 +16,14 @@ var store = Ext.create("Ext.data.Store", {
     ]
 });
 
-Ext.define('MobileFinance.view.PieChartPanel', {
+Ext.define('MobileFinance.view.statistics.PieChartPanel', {
    extend: 'Ext.Panel',
    alias: 'widget.pie-chart',
+
+   requires: [
+      'Ext.chart.series.Pie',
+      'Ext.chart.interactions.Rotate'
+  ],
 
    config: {
        title: 'Pie Chart',

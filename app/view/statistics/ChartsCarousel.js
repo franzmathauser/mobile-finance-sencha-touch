@@ -1,7 +1,9 @@
-Ext.define('MobileFinance.view.ChartsCarousel', {
+Ext.define('MobileFinance.view.statistics.ChartsCarousel', {
     extend: 'Ext.Panel',
     //xtype: 'main',
     alias: "widget.charts-carousel",
+
+    requires: ['Ext.carousel.Carousel', 'Ext.chart.CartesianChart'],
 
     config: {
         fullscreen: true,

@@ -3,15 +3,27 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 	config:{
 		
-		views: ['Home', 'FilialfinderContainer', 'FilialfinderPanel', 'FilialfinderDetails', 'TransactionPanel', 'ChartsCarousel', 'BarChartContainer', 'PieChartContainer', 'BarChartPanel', 'PieChartPanel'],
+		views: [
+			'Home', 
+			'TransactionPanel', 
+			'storefinder.StoreFinderContainer', 
+			'storefinder.StoreFinderPanel', 
+			'storefinder.StoreFinderDetails', 
+			'statistics.ChartsCarousel', 
+			'statistics.BarChartContainer', 
+			'statistics.BarChartPanel',
+			'statistics.PieChartContainer', 
+			'statistics.PieChartPanel'
+		],
+
 		controllers: ['AuthController', 'LoginController'],
-		models: ['Filiale', 'Transaction'],
-		stores: ['Filialen', 'Transactions'],
+		models: ['Store', 'Transaction'],
+		stores: ['Stores', 'Transactions'],
 
 		refs: {
 			logout: 'logout',
             slidenavigationview : 'slidenavigationview',
-            filialfindercontainer : 'filialfindercontainer',
+            storeFinderContainer : 'storefinder-container',
             transactioncontainer : 'transactionpanel'
 
 		}, 
@@ -21,8 +33,8 @@ Ext.define('MobileFinance.controller.HomeController', {
 				'onSelect' : 'doOnSelectHandling',
 			},
 
-			filialfindercontainer : {
-				activate : 'loadFilialfinderList'
+			storeFinderContainer : {
+				activate : 'loadStoreFinderList'
 			},
 
 			transactioncontainer : {
@@ -34,9 +46,6 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 	init: function(){
 		console.log('home controller: inited');
-
-		console.log(this.getSlidenavigationview());
-
 	},
 
 	doOnSelectHandling: function(item){
@@ -45,7 +54,7 @@ Ext.define('MobileFinance.controller.HomeController', {
         }
 	},
 
-	loadFilialfinderList : function(newActiveItem, oldActiveItem, eOpts) {
+	loadStoreFinderList : function(newActiveItem, oldActiveItem, eOpts) {
 		MobileFinance.app.getController("GeoLocationController").doGeoRequest();
 	},
 

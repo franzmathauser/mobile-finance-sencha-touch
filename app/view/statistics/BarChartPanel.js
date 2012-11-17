@@ -16,11 +16,21 @@ var store = Ext.create("Ext.data.Store", {
     ]
 });
 
-Ext.define('MobileFinance.view.BarChartPanel', {
+Ext.define('MobileFinance.view.statistics.BarChartPanel', {
    extend: 'Ext.Panel',
    alias: 'widget.bar-chart',
 
-   
+   requires: [
+        'Ext.chart.axis.Numeric',
+        'Ext.chart.series.Line',
+        'Ext.chart.axis.Category',
+        'Ext.chart.series.Bar',
+        'Ext.chart.interactions.PanZoom',
+        'Ext.chart.interactions.ItemHighlight',
+        'Ext.chart.PolarChart',
+        'Ext.chart.interactions.ItemInfo',
+        ],
+
    config: {
        title: 'Bar Chart',
        layout: 'fit',

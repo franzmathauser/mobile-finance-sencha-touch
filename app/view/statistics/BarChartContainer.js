@@ -1,4 +1,4 @@
-Ext.define('MobileFinance.view.BarChartContainer', {
+Ext.define('MobileFinance.view.statistics.BarChartContainer', {
    extend: 'Ext.Panel',
    alias: 'widget.bar-chart-container',
 
