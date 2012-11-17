@@ -1,4 +1,4 @@
-.filialfinder-entry img {
+.storefinder-entry img { 
 	float:left;
 	height:44px;
 	border:1px solid;
@@ -6,16 +6,16 @@
 }
 
 
-.filialfinder-details {
+.storefinder-details {
 	background-color: #CCCCCC;
 }
-.filialfinder-details h1{
+.storefinder-details h1{
 	font-size:120%;
 }
-.filialfinder-details h3{
+.storefinder-details h3{
 	font-size:90%;
 }
-.filialfinder-details img {
+.storefinder-details img {
 	float:left;
 	border:1px solid;
 	margin-right:3px;
@@ -33,7 +33,7 @@
 }
 
 .red {
-	color:red;
+	color:blue;
 }
 
 .transaction-entry {
