@@ -7,12 +7,58 @@ Ext.Loader.setPath({
 });
 //</debug>
 
+
+/** 
+* configuration of pullrefresh for list components
+*/
+var pullRefreshPlugin = {
+                xclass: 'Ext.plugin.PullRefresh',
+                pullRefreshText: 'Ziehen um neue Daten zu laden!',
+                releaseRefreshText: 'Loslassen zum aktualisieren',
+                lastUpdatedText: 'Letzte Aktualisierung:',
+                loadingText: 'Datenladen...',
+                pullTpl: [
+                    '<div class="x-list-pullrefresh">',
+                        '<div class="x-list-pullrefresh-arrow"></div>',
+                        '<div class="x-loading-spinner">',
+                            '<span class="x-loading-top"></span>',
+                            '<span class="x-loading-right"></span>',
+                            '<span class="x-loading-bottom"></span>',
+                            '<span class="x-loading-left"></span>',
+                        '</div>',
+                        '<div class="x-list-pullrefresh-wrap">',
+                            '<h3 class="x-list-pullrefresh-message">{message}</h3>',
+                            '<div class="x-list-pullrefresh-updated">{lastUpdatedText}&nbsp;{lastUpdated:date("d.m.Y h:iA")}</div>',
+                        '</div>',
+                    '</div>'
+                ].join('')
+            };
+
+/** 
+* configuration of infinitescrolling  for list components
+*/
+var infiniteScroll = {
+            xclass: 'Ext.plugin.ListPaging',
+            autoPaging: true,
+            loadMoreText: 'lade weitere Daten...'
+        };
+
 Ext.application({
     name: 'MobileFinance',
 
     requires: ['Ext.MessageBox', 'Ext.Anim'],
 
-    controllers: ['MainController', 'LoginController', 'AuthController', 'HomeController', 'PlacesController', 'GeoLocationController', 'TransactionController', 'PieChartController'],
+    controllers: [ 
+        'MainController', 
+        'LoginController', 
+        'NewsChannelController', 
+        'AuthController', 
+        'HomeController', 
+        'PlacesController', 
+        'GeoLocationController', 
+        'TransactionController', 
+        'PieChartController'
+    ],
 
     views: ['Main'],
 
@@ -35,6 +81,7 @@ Ext.application({
     },
 
     launch: function() {
+
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 

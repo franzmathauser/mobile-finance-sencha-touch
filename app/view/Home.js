@@ -156,6 +156,30 @@ Ext.define('MobileFinance.view.Home', {
             }]
         },
         {
+            title: 'News',
+            //group: 'Group 1',
+            iconPath: 'touch/resources/themes/images/default/pictos/quote_black3.png',
+            /**
+             *  Here's an example of how we can add a button into
+             *  particular location.  In this case, it'll be added into the
+             *  item's toolbar.
+             */
+            slideButton: {
+                selector: 'toolbar',
+                iconCls: 'more',
+                iconMask: true,
+            },
+            items: [{
+                xtype: 'toolbar',
+                title: 'News',
+                docked: 'top'
+                },
+                {
+                    xtype: 'newschannel'
+                }
+            ]
+        },
+        {
             title: 'Logout',
             //group: 'Group 1',
             iconPath: 'touch/resources/themes/images/default/pictos/stop2.png',

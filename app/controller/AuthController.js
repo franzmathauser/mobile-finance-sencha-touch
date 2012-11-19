@@ -5,7 +5,7 @@ Ext.define('MobileFinance.controller.AuthController', {
 		
 		//views: ['Main', 'Login'],
 		refs: {
-			login:'loginpage'
+			main:'main'
 		}
 
 	},
@@ -25,7 +25,8 @@ Ext.define('MobileFinance.controller.AuthController', {
 
 		// Event on successful Ajax-Request
 		Ext.Ajax.on('requestcomplete', function(conn, response, options) {
-			console.log('complete:' + arguments);
+			console.log('complete');
+			console.log(arguments);
 			//this.loadingMask.hide();
 		}, this );
 
@@ -40,8 +41,6 @@ Ext.define('MobileFinance.controller.AuthController', {
 
 				default: 
 					break;
-
-
 			}
 
 			this.loadingMask.hide();
@@ -74,12 +73,12 @@ Ext.define('MobileFinance.controller.AuthController', {
 	},
 
 	slideToLoginPanel: function(){
-		var login = this.getLogin();
+		var main = this.getMain();
 
 		var items = Ext.Viewport.getItems();
-        login.previousView = items.items[0];
+        main.previousView = items.items[0];
 
-		Ext.Viewport.animateActiveItem(login,{ type: 'slide', direction: 'right'});
+		Ext.Viewport.animateActiveItem(main,{ type: 'slide', direction: 'right'});
 	}
 
 	

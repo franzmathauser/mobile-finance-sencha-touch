@@ -33,7 +33,7 @@
 }
 
 .red {
-	color:blue;
+	color:red;
 }
 
 .transaction-entry {
@@ -49,4 +49,16 @@
 	font-size:200%;
 	float:right;
 	margin-right: 300px;
+}
+
+.newschannel-entry h3 {
+	color:gray;
+	display: block;
+	font-size:80%;
+}
+
+.newschannel-entry img {
+	float:left;
+	height:66px;
+	display:block;
 }
