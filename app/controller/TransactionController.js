@@ -9,7 +9,8 @@ Ext.define('MobileFinance.controller.TransactionController',{
         views: ["TransactionPanel"],
 
         refs: {
-            transactionRefreshBtn : 'button[action=doTransactionRefresh]'
+            transactionRefreshBtn : 'button[action=doTransactionRefresh]',
+            transactionList : 'transactionpanel list'
             /*
             filialFinderDetails: 'filialfindercontainer filialfinderdetailspanel',
             filialFinderMap : 'filialfindercontainer map',
@@ -20,6 +21,9 @@ Ext.define('MobileFinance.controller.TransactionController',{
         control: {
             transactionRefreshBtn : {
                 tap : 'doRequest'
+            }, 
+            transactionList : {
+                itemtaphold: 'showCategoryMenue'
             }
             /*
             filialFinderList :{
@@ -62,8 +66,14 @@ Ext.define('MobileFinance.controller.TransactionController',{
         
         var transactions = Ext.getStore('Transactions');
         var transactionsProxy = transactions.getProxy();
-        transactionsProxy.setUrl('https://pc42366.de.softlab.net:8181/JavaBackend/rest/secure/bankaccount/1/transactions');
+        transactionsProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/1/transactions');
         transactions.load();
+    }, 
+
+    showCategoryMenue: function() {
+
+
+        alert('true');
     }
     
 });

@@ -25,8 +25,8 @@ Ext.define('MobileFinance.view.NewsChannel', {
                 itemTpl: '<tpl if="image"><img src="{image}" /></tpl><h1>{message}</h1><h3>{date}</h3>', 
                 itemCls: 'newschannel-entry',
                 plugins: [
-                    pullRefreshPlugin,
-                    infiniteScroll
+                    MobileFinance.app.pullRefreshPlugin,
+                    MobileFinance.app.infiniteScroll
                 ],
             }
         ]

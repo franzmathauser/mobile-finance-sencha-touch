@@ -20,9 +20,8 @@ Ext.define('MobileFinance.view.TransactionPanel', {
                 grouped: true,
                 //indexBar: true,
                 allowDeselect : true, 
-                plugins: [pullRefreshPlugin]
+                plugins: [MobileFinance.app.pullRefreshPlugin]
             }
         ]
-      
    }
 });
