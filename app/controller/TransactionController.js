@@ -6,11 +6,12 @@ Ext.define('MobileFinance.controller.TransactionController',{
     ],
 
     config: {
-        views: ["TransactionPanel"],
+        views: ["TransactionPanel", "CategoryPanel"],
 
         refs: {
             transactionRefreshBtn : 'button[action=doTransactionRefresh]',
-            transactionList : 'transactionpanel list'
+            transactionList : 'transactionpanel list',
+            categoryList : 'categorypanel list',
             /*
             filialFinderDetails: 'filialfindercontainer filialfinderdetailspanel',
             filialFinderMap : 'filialfindercontainer map',
@@ -24,6 +25,10 @@ Ext.define('MobileFinance.controller.TransactionController',{
             }, 
             transactionList : {
                 itemtaphold: 'showCategoryMenue'
+            },
+            categoryList : {
+                itemtap : 'selectCategory',
+                
             }
             /*
             filialFinderList :{
@@ -60,6 +65,7 @@ Ext.define('MobileFinance.controller.TransactionController',{
     
     init: function() {
         console.log('transaction controller: inited ');
+        this.categoryPanel = Ext.createByAlias('widget.categorypanel', {hidden:true, width: 300, height:400, hideOnMaskTap:true });
     }, 
 
     doRequest: function() {
@@ -70,10 +76,51 @@ Ext.define('MobileFinance.controller.TransactionController',{
         transactions.load();
     }, 
 
-    showCategoryMenue: function() {
+    showCategoryMenue: function( item, index, target, record, e, eOpts) {
+        var categoryId = record.data.categoryId;
+        this.selectedTransaction = record.data.id;
 
+        var categories = Ext.getStore('Categories');
+        var categoriesProxy = categories.getProxy();
+        categoriesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/1/categories');
+        
+        categories.load({
+            callback: function() {
+                console.debug('category-id: ' + categoryId);
+                if(categoryId > 0) {
+                    var rowindex = categories.find('id', categoryId);
+                    this.getCategoryList().select(rowindex);
+                } else {
+                    this.getCategoryList().deselectAll();
+                }
+                this.categoryPanel.showBy(target);
+            }, 
+            scope: this
+        });
+        
+    }, 
 
-        alert('true');
-    }
+    selectCategory: function(item, index, target, record, e, eOpts) {
+        console.log(record.data);
+        var transactionId = this.selectedTransaction;
+        var iconUrl = record.data.iconUrl;
+        var iconId = record.data.id;
+        var iconName = record.data.name;
+
+        var transactions = Ext.getStore('Transactions');
+        var record = transactions.findRecord('id', transactionId);
+        console.log(record);
+        record.set('categoryId', iconId);
+        console.log(record.get('categoryIcon'));
+        record.set('category', iconName);
+        record.set('categoryIcon', iconUrl);
+        console.log(record.get('categoryIcon'));
+        console.log(record);
+
+        this.categoryPanel.hide();
+        transactions.sync();
+        
+    },
+
     
 });

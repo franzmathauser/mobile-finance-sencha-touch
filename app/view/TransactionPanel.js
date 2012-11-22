@@ -6,6 +6,7 @@ Ext.define('MobileFinance.view.TransactionPanel', {
    config: {
        title: 'Transaktionen',
        layout: 'fit',
+      
         
         items: [
             {

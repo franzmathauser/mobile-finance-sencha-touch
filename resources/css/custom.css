@@ -48,7 +48,7 @@
 .transaction-amount {
 	font-size:200%;
 	float:right;
-	margin-right: 300px;
+	margin-right: 220px;
 }
 
 .newschannel-entry h3 {
@@ -62,3 +62,15 @@
 	height:66px;
 	display:block;
 }
+
+.category-entry img {
+	float:left;
+	height:40px;
+	display:block;
+	padding-right:5px;
+}
+
+.category-entry h1 {
+	font-size:120%;
+}
+

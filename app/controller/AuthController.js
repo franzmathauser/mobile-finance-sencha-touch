@@ -29,9 +29,7 @@ Ext.define('MobileFinance.controller.AuthController', {
 			console.log(arguments);
 
 			// check if version of json-responses is 1.0
-			console.log(JSON.parse(response.responseText).version);
 			if(JSON.parse(response.responseText).version != '1.0') {
-				alert('json version changed.');
 				Ext.Msg.alert('JSON Response changed', 'Das Backend liefert Daten in einer neuen Struktur aus. Dieser Client unterstützt dieses Format-Version noch nicht.');
 			}
 
@@ -50,8 +48,6 @@ Ext.define('MobileFinance.controller.AuthController', {
 				default: 
 					break;
 			}
-
-			
 
 			this.loadingMask.hide();
 

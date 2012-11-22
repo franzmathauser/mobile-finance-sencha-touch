@@ -17,8 +17,8 @@ Ext.define('MobileFinance.controller.HomeController', {
 		],
 
 		controllers: ['AuthController', 'LoginController'],
-		models: ['Store', 'Transaction'],
-		stores: ['Stores', 'Transactions'],
+		models: ['Store', 'Transaction', 'Category'],
+		stores: ['Stores', 'Transactions', 'Categories'],
 
 		refs: {
 			logout: 'logout',

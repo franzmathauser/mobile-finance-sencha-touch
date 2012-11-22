@@ -22,8 +22,8 @@ Ext.define('MobileFinance.view.Home', {
         
 
         list: {
-            maxDrag: 350,
-            width: 300,
+            maxDrag: 230,
+            width: 220,
             items: [{
                 xtype: 'toolbar',
                 docked: 'top',
