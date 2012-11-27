@@ -12,6 +12,9 @@ Ext.define('MobileFinance.controller.TransactionController',{
             transactionRefreshBtn : 'button[action=doTransactionRefresh]',
             transactionList : 'transactionpanel list',
             categoryList : 'categorypanel list',
+            categoryEdit : 'categorypanel #edit-button',
+            categoryNavigationView : 'categorypanel navigationview',
+
             /*
             filialFinderDetails: 'filialfindercontainer filialfinderdetailspanel',
             filialFinderMap : 'filialfindercontainer map',
@@ -28,7 +31,9 @@ Ext.define('MobileFinance.controller.TransactionController',{
             },
             categoryList : {
                 itemtap : 'selectCategory',
-                
+            },
+            categoryEdit : {
+                tap : 'editCategory',
             }
             /*
             filialFinderList :{
@@ -62,6 +67,8 @@ Ext.define('MobileFinance.controller.TransactionController',{
            */
         }
     },
+
+    editCategoryToggle : false,
     
     init: function() {
         console.log('transaction controller: inited ');
@@ -101,26 +108,79 @@ Ext.define('MobileFinance.controller.TransactionController',{
     }, 
 
     selectCategory: function(item, index, target, record, e, eOpts) {
-        console.log(record.data);
-        var transactionId = this.selectedTransaction;
-        var iconUrl = record.data.iconUrl;
-        var iconId = record.data.id;
-        var iconName = record.data.name;
 
-        var transactions = Ext.getStore('Transactions');
-        var record = transactions.findRecord('id', transactionId);
-        console.log(record);
-        record.set('categoryId', iconId);
-        console.log(record.get('categoryIcon'));
-        record.set('category', iconName);
-        record.set('categoryIcon', iconUrl);
-        console.log(record.get('categoryIcon'));
-        console.log(record);
+        if(!this.editCategoryToggle){
+            console.log(record.data);
+            var transactionId = this.selectedTransaction;
+            var iconUrl = record.data.iconUrl;
+            var iconId = record.data.id;
+            var iconName = record.data.name;
 
-        this.categoryPanel.hide();
-        transactions.sync();
+            var transactions = Ext.getStore('Transactions');
+            var record = transactions.findRecord('id', transactionId);
+            console.log(record);
+            record.set('categoryId', iconId);
+            console.log(record.get('categoryIcon'));
+            record.set('category', iconName);
+            record.set('categoryIcon', iconUrl);
+            console.log(record.get('categoryIcon'));
+            console.log(record);
+
+            this.categoryPanel.hide();
+            transactions.sync();
+        } else {
+            this.getCategoryNavigationView().push({
+                    xtype: 'panel', 
+                    layout : {
+                        type: 'vbox'
+                    },
+                    items : [
+                        {
+                            xtype: 'fieldset',
+                            title: 'Kategorie',
+                            items: [
+                                    {
+                                        xtype: 'textfield',
+                                        name: 'name',
+                                        label: 'Name'
+                                    },
+                            ]
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'Speichern',
+                            iconCls : 'action',
+                            iconMask : true,
+                            ui:'confirm'
+                        }
+                        ,
+                        {
+                            xtype: 'button',
+                            text: 'Löschen',
+                            iconCls : 'trash',
+                            iconMask : true,
+                            ui:'decline'
+                        }
+                    ]
+            });
+        }
         
     },
+
+    editCategory : function( button, e, eOpts) {
+        if(this.editCategoryToggle) {
+            button.setText('Bearbeiten');
+            this.editCategoryToggle = false;
+            button.setIconCls('settings');
+            button.setUi('action');
+        } else {
+            this.editCategoryToggle = true;    
+            button.setText('Beenden');
+            button.setIconCls('more');
+            button.setUi('confirm');
+        }
+        
+    }
 
     
 });
