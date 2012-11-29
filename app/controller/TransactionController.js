@@ -6,20 +6,18 @@ Ext.define('MobileFinance.controller.TransactionController',{
     ],
 
     config: {
-        views: ["TransactionPanel", "CategoryPanel"],
+        views: ["TransactionPanel", "CategoryPanel", "CategorySetting"],
 
         refs: {
             transactionRefreshBtn : 'button[action=doTransactionRefresh]',
             transactionList : 'transactionpanel list',
             categoryList : 'categorypanel list',
-            categoryEdit : 'categorypanel #edit-button',
+            categoryEdit : 'categorypanel #edit-category-button',
+            categoryAdd : 'categorypanel #add-category-button',
             categoryNavigationView : 'categorypanel navigationview',
-
-            /*
-            filialFinderDetails: 'filialfindercontainer filialfinderdetailspanel',
-            filialFinderMap : 'filialfindercontainer map',
-            filialFinderList : 'filialfindercontainer filialfinderpanel list'
-            */
+            categorySettingForm : 'categorypanel category-setting',
+            categorySettingFormSubmit : 'categorypanel category-setting button[action=category-save]',
+            categorySettingFormDelete : 'categorypanel category-setting button[action=category-delete]'
         },
 
         control: {
@@ -34,40 +32,25 @@ Ext.define('MobileFinance.controller.TransactionController',{
             },
             categoryEdit : {
                 tap : 'editCategory',
+            },
+            categoryAdd : {
+                tap : 'addCategory',
+            },
+            categorySettingFormSubmit : {
+                tap : 'doCategorySubmit',
+            },
+            categorySettingFormDelete : {
+                tap : 'doCategoryDelete',
+            },
+            categoryNavigationView : {
+                back : 'doBack',
             }
-            /*
-            filialFinderList :{
-
-                select: function(list, record, eOpts ) {
-
-                    var filialFinderDetailsView = this.getFilialFinderDetails();
-
-
-                    filialFinderDetailsView.setData(record.data);
-                    
-                    var filialFinderMap = this.getFilialFinderMap();
-                    var location = record.get('geometry').location;
-                    var coords = new google.maps.LatLng(location.lat, location.lng);
-                    filialFinderMap.setMapCenter(coords);
-                    
-                    console.log(filialFinderMap.getMap());
-                    this.currentMarker.setMap(filialFinderMap.getMap());
-                    this.currentMarker.setPosition(coords);
-
-                    filialFinderDetailsView.show();
-                    this.currentItemId = record.get('id');
-                    
-               }, 
-
-               deselect: function(list, record, supressed, eOpts){
-                    var filialFinderDetailsView = this.getFilialFinderDetails();
-                    filialFinderDetailsView.hide();
-               }
-           }
-           */
         }
     },
 
+    /**
+    * switch for en/disable the category settings
+    */
     editCategoryToggle : false,
     
     init: function() {
@@ -109,8 +92,9 @@ Ext.define('MobileFinance.controller.TransactionController',{
 
     selectCategory: function(item, index, target, record, e, eOpts) {
 
-        if(!this.editCategoryToggle){
-            console.log(record.data);
+
+        if(!this.editCategoryToggle){ // check if category settings switch is enabled
+
             var transactionId = this.selectedTransaction;
             var iconUrl = record.data.iconUrl;
             var iconId = record.data.id;
@@ -118,7 +102,7 @@ Ext.define('MobileFinance.controller.TransactionController',{
 
             var transactions = Ext.getStore('Transactions');
             var record = transactions.findRecord('id', transactionId);
-            console.log(record);
+            
             record.set('categoryId', iconId);
             console.log(record.get('categoryIcon'));
             record.set('category', iconName);
@@ -129,39 +113,11 @@ Ext.define('MobileFinance.controller.TransactionController',{
             this.categoryPanel.hide();
             transactions.sync();
         } else {
+
+
             this.getCategoryNavigationView().push({
-                    xtype: 'panel', 
-                    layout : {
-                        type: 'vbox'
-                    },
-                    items : [
-                        {
-                            xtype: 'fieldset',
-                            title: 'Kategorie',
-                            items: [
-                                    {
-                                        xtype: 'textfield',
-                                        name: 'name',
-                                        label: 'Name'
-                                    },
-                            ]
-                        },
-                        {
-                            xtype: 'button',
-                            text: 'Speichern',
-                            iconCls : 'action',
-                            iconMask : true,
-                            ui:'confirm'
-                        }
-                        ,
-                        {
-                            xtype: 'button',
-                            text: 'Löschen',
-                            iconCls : 'trash',
-                            iconMask : true,
-                            ui:'decline'
-                        }
-                    ]
+                xtype: 'category-setting', 
+                record: record,
             });
         }
         
@@ -169,18 +125,64 @@ Ext.define('MobileFinance.controller.TransactionController',{
 
     editCategory : function( button, e, eOpts) {
         if(this.editCategoryToggle) {
-            button.setText('Bearbeiten');
-            this.editCategoryToggle = false;
-            button.setIconCls('settings');
-            button.setUi('action');
+            //close bearbeiten
+            this.editCategoryToggle = false;    
+            button.setUi('normal');
+            this.getCategoryAdd().hide();
         } else {
-            this.editCategoryToggle = true;    
-            button.setText('Beenden');
-            button.setIconCls('more');
+            //bearbeiten
+            this.editCategoryToggle = true;
             button.setUi('confirm');
+            this.getCategoryAdd().show();
         }
         
+    },
+
+    addCategory : function( button, e, eOpts) {
+        this.getCategoryNavigationView().push({
+                    xtype: 'category-setting', 
+        });
+
+        var form = this.getCategorySettingForm();
+        form.reset();
+    },
+
+    doCategorySubmit : function( button, e, eOpts) {
+        var form = this.getCategorySettingForm();
+        var catObj = form.getValues();
+        //var categoryStore = Ext.getStore('Categories');
+        var categoryStore = this.getCategoryList().getStore();
+
+        if(catObj.id) {
+            // update
+            var record = categoryStore.findRecord('id', catObj.id);
+            record.set('name', catObj.name);
+        } else {
+            // create
+            var record = Ext.create('MobileFinance.model.Category', {name: catObj.name});
+            //record.dirty = true;
+            record.set('id',null);
+            categoryStore.add(record);
+        }
+        categoryStore.sync();
+        this.getCategoryNavigationView().pop();
+    },
+
+    doCategoryDelete : function( button, e, eOpts) {
+        var form = this.getCategorySettingForm();
+        var catObj = form.getValues();
+
+        var categoryStore = Ext.getStore('Categories');
+        var record = categoryStore.findRecord('id', catObj.id);
+        categoryStore.remove(record);
+        categoryStore.sync();
+        this.getCategoryNavigationView().pop();
+    },
+
+    doBack : function(me, eOpts) {
+        this.getCategoryList().refresh();
     }
+
 
     
 });

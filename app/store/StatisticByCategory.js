@@ -22,7 +22,7 @@ Ext.define('MobileFinance.store.StatisticByCategory',{
         ]
         */
 
-        autoLoad: true,
+        autoLoad: false,
         
         proxy: {
             type: 'ajax',

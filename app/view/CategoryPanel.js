@@ -9,23 +9,34 @@ Ext.define('MobileFinance.view.CategoryPanel', {
        modal:true,
         
         items: [
+            
             {
                xtype: 'navigationview',
 
                navigationBar: {
                
-                 items: [{
+                 items: [
+                 {
                     align: 'right',
                     xtype: 'button',
-                    text: 'Bearbeiten',
-                    iconCls: 'settings',
-                    ui: 'action',
+                    iconCls: 'add',
                     iconMask: true,
-                    id: 'edit-button'
-                  }]
+                    id: 'add-category-button',
+                    ui: 'action',
+                    hidden:true,
+                  },
+                  {
+                    align: 'right',
+                    xtype: 'button',
+                    iconCls: 'compose',
+                    iconMask: true,
+                    id: 'edit-category-button'
+                  }
+                  ]
                 },
 
-                items: [{
+                items: [
+                {
                  
                   xtype: 'list',
                   store: 'Categories',

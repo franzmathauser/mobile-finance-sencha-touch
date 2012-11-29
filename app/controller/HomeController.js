@@ -24,7 +24,8 @@ Ext.define('MobileFinance.controller.HomeController', {
 			logout: 'logout',
             slidenavigationview : 'slidenavigationview',
             storeFinderContainer : 'storefinder-container',
-            transactioncontainer : 'transactionpanel'
+            transactioncontainer : 'transactionpanel',
+            statisticscontainer : 'charts-carousel'
 
 		}, 
 
@@ -39,6 +40,9 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 			transactioncontainer : {
 				activate : 'loadTransactionList'
+			}, 
+			statisticscontainer : {
+				activate : 'loadStatistic'
 			}
 		}
 
@@ -60,7 +64,11 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 	loadTransactionList : function(newActiveItem, oldActiveItem, eOpts) {
 		MobileFinance.app.getController("TransactionController").doRequest();
-	}
+	},
+
+	loadStatistic :  function(newActiveItem, oldActiveItem, eOpts) {
+		Ext.getStore('StatisticByCategory').load();
+	},
 	
 
 	
