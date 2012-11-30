@@ -1,21 +1,15 @@
-Ext.define('MobileFinance.store.Transactions',{
+Ext.define('MobileFinance.store.MonthlyCategories',{
     extend: 'Ext.data.Store',
     
     config: {
-        model: 'MobileFinance.model.Transaction',
+
+        fields: ['name', 'value1', 'value2', 'value3', 'value4', 'value5', 'value6', 'value7', 'value8', 'value9', 'value10'],
+
         autoLoad: false,
-        
-        grouper: {
-            sortProperty:'billingDateMillis',
-            direction: 'DESC',
-            groupFn: function(record) {
-                return record.get('billingDate').toUpperCase();
-            }
-        },
         
         proxy: {
             type: 'ajax',
-            //url: is set in controller
+            url: 'https://pc42366.de.softlab.net:8181/JavaBackend/rest/secure/bankaccount/1/statistic/byMonthlyCategory?maxCategories=5',
             useDefaultXhrHeader:false,
             withCredentials:true,
             reader: {

@@ -21,6 +21,9 @@ Ext.define('MobileFinance.view.statistics.ChartsCarousel', {
 
                 items: [
                     {
+                        xtype : 'radar-chart-container'
+                    },
+                    {
                         xtype : 'bar-chart-container'
                     },
                     {

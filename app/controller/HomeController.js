@@ -13,7 +13,9 @@ Ext.define('MobileFinance.controller.HomeController', {
 			'statistics.BarChartContainer', 
 			'statistics.BarChartPanel',
 			'statistics.PieChartContainer', 
-			'statistics.PieChartPanel'
+			'statistics.PieChartPanel',
+			'statistics.RadarChartContainer', 
+			'statistics.RadarChartPanel'
 		],
 
 		controllers: ['AuthController', 'LoginController'],
@@ -68,6 +70,8 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 	loadStatistic :  function(newActiveItem, oldActiveItem, eOpts) {
 		Ext.getStore('StatisticByCategory').load();
+		Ext.getStore('MonthlyCategories').load();
+		Ext.getStore('IncomeOutcomeSaldos').load();
 	},
 	
 

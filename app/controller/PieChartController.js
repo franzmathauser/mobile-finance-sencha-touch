@@ -1,7 +1,7 @@
 Ext.define('MobileFinance.controller.PieChartController', {
 	extend: 'Ext.app.Controller',
 
-	stores: ['StatisticByCategory', 'IncomeOutcomeSaldos'],
+	stores: ['StatisticByCategory', 'IncomeOutcomeSaldos', 'MonthlyCategories'],
 	
 	config:{
 		

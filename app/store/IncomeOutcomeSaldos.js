@@ -5,7 +5,7 @@ Ext.define('MobileFinance.store.IncomeOutcomeSaldos',{
 
         fields: ['name', 'value1', 'value2', 'value3'],
 
-        autoLoad: true,
+        autoLoad: false,
         
         proxy: {
             type: 'ajax',
