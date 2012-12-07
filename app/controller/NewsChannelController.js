@@ -4,7 +4,9 @@ Ext.define('MobileFinance.controller.NewsChannelController', {
 	requires: [
         'Ext.data.Store',
         'Ext.plugin.PullRefresh',
-        'Ext.plugin.ListPaging'
+        'Ext.plugin.ListPaging',
+        'Ext.data.proxy.Rest',
+        'MobileFinance.model.BankTransfer'
     ],
 	config:{
 		

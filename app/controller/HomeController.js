@@ -1,6 +1,8 @@
 Ext.define('MobileFinance.controller.HomeController', {
 	extend: 'Ext.app.Controller',
 
+	requires: ['Ext.navigation.View'],
+
 	config:{
 		
 		views: [
@@ -22,10 +24,11 @@ Ext.define('MobileFinance.controller.HomeController', {
 			'statistics.RadarChartPanel'
 
 		],
+		
+		stores: ['Stores', 'Transactions', 'Categories'],
 
 		controllers: ['AuthController', 'LoginController'],
 		models: ['Store', 'Transaction', 'Category'],
-		stores: ['Stores', 'Transactions', 'Categories'],
 
 		refs: {
 			logout: 'logout',
