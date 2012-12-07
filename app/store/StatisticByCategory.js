@@ -26,7 +26,7 @@ Ext.define('MobileFinance.store.StatisticByCategory',{
         
         proxy: {
             type: 'ajax',
-            url: 'https://pc42366.de.softlab.net:8181/JavaBackend/rest/secure/bankaccount/1/statistic/byCategory',
+            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byCategory',
             useDefaultXhrHeader:false,
             withCredentials:true,
             reader: {

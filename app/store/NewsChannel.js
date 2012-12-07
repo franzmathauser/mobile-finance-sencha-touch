@@ -6,7 +6,7 @@ Ext.define('MobileFinance.store.NewsChannel',{
         autoLoad: false,
         proxy: {
             type: 'ajax',
-            url: 'https://pc42366.de.softlab.net:8181/JavaBackend/rest/newschannel',
+            url: MobileFinance.app.backendBaseUrl+'newschannel',
             reader: {
                 type: 'json',
                 rootProperty:'bodyData'

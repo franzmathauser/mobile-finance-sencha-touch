@@ -59,7 +59,7 @@ Ext.define('MobileFinance.view.Home', {
         items: [{
             title: 'Transaktionsliste',
             //group: 'Group 1',
-            iconPath: "touch/resources/themes/images/default/pictos/card2.png",
+            iconPath: "touch/resources/themes/images/default/pictos/sign_leftright2.png",
             /**
              *  Here's an example of how we can add a button into
              *  particular location.  In this case, it'll be added into the
@@ -84,6 +84,36 @@ Ext.define('MobileFinance.view.Home', {
                 }],
                 },{
                     xtype: 'transactionpanel'
+            }]
+        },
+        {
+            title: 'Banking',
+            iconPath: 'touch/resources/themes/images/default/pictos/card2.png',
+            //group: 'Group 1',
+            /**
+             *  Here's an example of how we can add a button into
+             *  particular location.  In this case, it'll be added into the
+             *  item's toolbar.
+             */
+            slideButton: {
+                selector: 'toolbar',
+                iconCls: 'more',
+                iconMask: true,
+            },
+            items: [{
+                xtype: 'toolbar',
+                title: 'Transaktionsliste',
+                docked: 'top',
+                items: [{
+                    xtype: 'button',
+                    iconMask: true,
+                    iconCls: 'camera',
+                    top: '7px',
+                    left: '50px',
+                    action: 'doCameraBankingCapture'
+                }],
+                },{
+                    xtype: 'banking-form-panel'
             }]
         },
         {
@@ -149,11 +179,15 @@ Ext.define('MobileFinance.view.Home', {
                 iconCls: 'more',
                 iconMask: true,
             },
-            items: [{
-                xtype: 'toolbar',
-                title: 'Chat',
-                docked: 'top'
-            }]
+            items: [
+                {
+                    xtype: 'toolbar',
+                    title: 'Chat',
+                    docked: 'top'
+                }, {
+                    xtype: 'chat-panel'
+                }
+            ]
         },
         {
             title: 'News',

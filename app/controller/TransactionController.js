@@ -61,8 +61,6 @@ Ext.define('MobileFinance.controller.TransactionController',{
     doRequest: function() {
         
         var transactions = Ext.getStore('Transactions');
-        var transactionsProxy = transactions.getProxy();
-        transactionsProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/1/transactions');
         transactions.load();
     }, 
 
@@ -71,9 +69,6 @@ Ext.define('MobileFinance.controller.TransactionController',{
         this.selectedTransaction = record.data.id;
 
         var categories = Ext.getStore('Categories');
-        var categoriesProxy = categories.getProxy();
-        categoriesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/1/categories');
-        
         categories.load({
             callback: function() {
                 console.debug('category-id: ' + categoryId);

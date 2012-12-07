@@ -23,7 +23,8 @@ Ext.application({
         'PlacesController', 
         'GeoLocationController', 
         'TransactionController', 
-        'PieChartController'
+        'PieChartController', 
+        'BankingController'
     ],
 
     views: ['Main'],
@@ -101,6 +102,8 @@ Ext.application({
         xclass: 'Ext.plugin.ListPaging',
         autoPaging: true,
         loadMoreText: 'lade weitere Daten...'
-    } 
+    },
+
+    currentBankAccount : 1
 
 });

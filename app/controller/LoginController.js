@@ -40,7 +40,7 @@ Ext.define("MobileFinance.controller.LoginController", {
         var jsonObj = form.getValues();
         var json = JSON.stringify(jsonObj);
 
-        var url = "https://pc42366.de.softlab.net:8181/JavaBackend/rest/auth/login"
+        var url = MobileFinance.app.backendBaseUrl+'auth/login';
 
         Ext.Ajax.request({
             url: url,
@@ -108,7 +108,7 @@ Ext.define("MobileFinance.controller.LoginController", {
     },
 
     doLogout: function() {
-        var url = "https://pc42366.de.softlab.net:8181/JavaBackend/rest/auth/logout"
+        var url = MobileFinance.app.backendBaseUrl+'auth/logout';
 
         Ext.Ajax.request({
             url: url,

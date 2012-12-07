@@ -21,6 +21,7 @@ Ext.define('MobileFinance.store.Categories',{
 
         proxy: {
             type : 'rest',
+            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/categories',
             withCredentials:true,
             useDefaultXhrHeader:false,
             reader: {

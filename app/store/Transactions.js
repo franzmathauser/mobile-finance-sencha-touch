@@ -15,7 +15,7 @@ Ext.define('MobileFinance.store.Transactions',{
         
         proxy: {
             type: 'ajax',
-            //url: is set in controller
+            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/transactions',
             useDefaultXhrHeader:false,
             withCredentials:true,
             reader: {

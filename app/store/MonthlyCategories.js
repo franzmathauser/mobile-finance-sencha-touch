@@ -9,7 +9,7 @@ Ext.define('MobileFinance.store.MonthlyCategories',{
         
         proxy: {
             type: 'ajax',
-            url: 'https://pc42366.de.softlab.net:8181/JavaBackend/rest/secure/bankaccount/1/statistic/byMonthlyCategory?maxCategories=5',
+            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byMonthlyCategory?maxCategories=5',
             useDefaultXhrHeader:false,
             withCredentials:true,
             reader: {

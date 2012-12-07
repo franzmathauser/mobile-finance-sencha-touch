@@ -6,6 +6,10 @@ Ext.define('MobileFinance.controller.HomeController', {
 		views: [
 			'Home', 
 			'TransactionPanel', 
+			'BankingFormPanel',
+			'BankingForm',
+			'ChatPanel',
+			'BankInfoPanel',
 			'storefinder.StoreFinderContainer', 
 			'storefinder.StoreFinderPanel', 
 			'storefinder.StoreFinderDetails', 
@@ -16,6 +20,7 @@ Ext.define('MobileFinance.controller.HomeController', {
 			'statistics.PieChartPanel',
 			'statistics.RadarChartContainer', 
 			'statistics.RadarChartPanel'
+
 		],
 
 		controllers: ['AuthController', 'LoginController'],

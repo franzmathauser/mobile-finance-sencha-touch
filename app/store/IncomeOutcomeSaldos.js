@@ -9,7 +9,7 @@ Ext.define('MobileFinance.store.IncomeOutcomeSaldos',{
         
         proxy: {
             type: 'ajax',
-            url: 'https://pc42366.de.softlab.net:8181/JavaBackend/rest/secure/bankaccount/1/statistic/incomeOutcomeSaldo',
+            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/incomeOutcomeSaldo',
             useDefaultXhrHeader:false,
             withCredentials:true,
             reader: {
