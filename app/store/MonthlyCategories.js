@@ -9,7 +9,7 @@ Ext.define('MobileFinance.store.MonthlyCategories',{
         
         proxy: {
             type: 'ajax',
-            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byMonthlyCategory?maxCategories=5',
+            //url: is set in controller
             useDefaultXhrHeader:false,
             withCredentials:true,
             reader: {

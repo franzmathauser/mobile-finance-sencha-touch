@@ -74,11 +74,21 @@ Ext.define('MobileFinance.controller.HomeController', {
 	},
 
 	loadStatistic :  function(newActiveItem, oldActiveItem, eOpts) {
-		Ext.getStore('StatisticByCategory').load();
-		Ext.getStore('MonthlyCategories').load();
-		Ext.getStore('IncomeOutcomeSaldos').load();
+		var statisticByCategories = Ext.getStore('StatisticByCategory');
+		var statisticByCategoriesProxy = statisticByCategories.getProxy();
+		statisticByCategoriesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byCategory');
+		statisticByCategories.load();
+
+		var monthlyCategories = Ext.getStore('MonthlyCategories');
+		var monthlyCategoriesProxy = monthlyCategories.getProxy();
+		monthlyCategoriesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byMonthlyCategory?maxCategories=5');
+		monthlyCategories.load();
+
+		var incomeOutcomeSaldos = Ext.getStore('IncomeOutcomeSaldos');
+		var incomeOutcomeSaldosProxy = incomeOutcomeSaldos.getProxy();
+		incomeOutcomeSaldosProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/incomeOutcomeSaldo');
+		incomeOutcomeSaldos.load();
 	},
 	
-
 	
 });

@@ -28,7 +28,7 @@ Ext.define('MobileFinance.model.BankTransfer', {
 
         proxy: {
             type : 'rest',
-            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/banktransfer',
+            //url: is set in controller
             withCredentials:true,
             useDefaultXhrHeader:false,
             reader: {

@@ -104,6 +104,10 @@ Ext.application({
         loadMoreText: 'lade weitere Daten...'
     },
 
-    currentBankAccount : 1
+    /**
+    * status of allowed bankaccount-id, only this accound-id is 
+    * accessable thru the session user.
+    **/
+    currentBankAccount : -1
 
 });

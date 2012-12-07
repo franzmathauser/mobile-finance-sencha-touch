@@ -68,7 +68,9 @@ Ext.define('MobileFinance.controller.BankingController',{
             Ext.Msg.alert('ERROR', msg);
             return;
         } else {
-
+            var bankTransferProxy = bankTransfer.getProxy();
+            bankTransferProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/banktransfer');
+            
             bankTransfer.save({
                 success: function(){
                     this.getBankingForm().reset();

@@ -67,14 +67,19 @@ Ext.define("MobileFinance.controller.LoginController", {
     onLoginResponse: function(response, opts){
         var obj = Ext.decode(response.responseText);
         if(obj.success){
-            this.onLoginSuccess();
+            this.onLoginSuccess(response, opts);
         } else {
             this.onLoginFailure(response, opts);
         }
     },
 
-    onLoginSuccess: function(){
+    onLoginSuccess: function(response, opts){
         
+        // Receive allowed bankaccount id.
+        var obj = Ext.decode(response.responseText);
+        var allowedAccountId = obj.bodyData.allowedBankAccountId;
+        MobileFinance.app.currentBankAccount = allowedAccountId;
+
         var hc = MobileFinance.app.getController('HomeController');
         var logout = hc.getLogout();
 

@@ -26,7 +26,7 @@ Ext.define('MobileFinance.store.StatisticByCategory',{
         
         proxy: {
             type: 'ajax',
-            url: MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byCategory',
+            // url: is set in controller
             useDefaultXhrHeader:false,
             withCredentials:true,
             reader: {
