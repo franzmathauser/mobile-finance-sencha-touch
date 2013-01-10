@@ -26,7 +26,7 @@ Ext.define('MobileFinance.view.BankInfoPanel', {
                         '</p>',
                 '</div>',
             '</div>'
-        ].join(""),
+        ].join("")
 
     }
 });

@@ -15,8 +15,7 @@ var myStore = Ext.create("Ext.data.Store", {
         { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
         { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
         { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
-        
+        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'}
     ]
 });
 
@@ -53,7 +52,7 @@ Ext.define('MobileFinance.view.ChatPanel', {
                                     '   <p class="chat-right right"><span class="user">{user}:</span> {message}</p>'+
                                     '   <img class="even" src="http://www.gravatar.com/avatar/{gravatar}?s=28&d=mm" />'+
                                     '</tpl>',
-                        store: myStore,
+                        store: 'SupportMessages',
                         scrollable: 'vertical'
                     },
                     {
@@ -63,18 +62,12 @@ Ext.define('MobileFinance.view.ChatPanel', {
                         items: [
                             {
                                 xtype: 'textfield',
-                                width: '80%',
-                                listeners: {
-                                    blur: function(field){
-                                        Ext.Viewport.scrollToTop();
-                                        App.fireEvent('newMsg', field.getValue());
-                                        field.reset();
-                                    }
-                                }
+                                width: '80%'
                             },{
                                 xtype: 'button',
                                 iconCls: 'chat',
                                 iconMask: true,
+                                action: 'sendChatMessage'
                             }
                         ]
                     }

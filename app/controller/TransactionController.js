@@ -2,7 +2,7 @@ Ext.define('MobileFinance.controller.TransactionController',{
     extend: 'Ext.app.Controller',
     
     requires: [
-        'Ext.data.Store',
+        'Ext.data.Store'
     ],
 
     config: {
@@ -28,22 +28,22 @@ Ext.define('MobileFinance.controller.TransactionController',{
                 itemtaphold: 'showCategoryMenue'
             },
             categoryList : {
-                itemtap : 'selectCategory',
+                itemtap : 'selectCategory'
             },
             categoryEdit : {
-                tap : 'editCategory',
+                tap : 'editCategory'
             },
             categoryAdd : {
-                tap : 'addCategory',
+                tap : 'addCategory'
             },
             categorySettingFormSubmit : {
-                tap : 'doCategorySubmit',
+                tap : 'doCategorySubmit'
             },
             categorySettingFormDelete : {
-                tap : 'doCategoryDelete',
+                tap : 'doCategoryDelete'
             },
             categoryNavigationView : {
-                back : 'doBack',
+                back : 'doBack'
             }
         }
     },
@@ -63,7 +63,7 @@ Ext.define('MobileFinance.controller.TransactionController',{
         var transactions = Ext.getStore('Transactions');
 
         var transactionsProxy = transactions.getProxy();
-        transactionsProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/transactions');
+        transactionsProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/bankaccount/'+MobileFinance.util.GlobalConf.currentBankAccount+'/transactions');
 
         transactions.load();
     }, 
@@ -75,7 +75,7 @@ Ext.define('MobileFinance.controller.TransactionController',{
         var categories = Ext.getStore('Categories');
 
         var categoriesProxy = categories.getProxy();
-        categoriesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/categories');
+        categoriesProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/bankaccount/'+MobileFinance.util.GlobalConf.currentBankAccount+'/categories');
 
         categories.load({
             callback: function() {
@@ -120,7 +120,7 @@ Ext.define('MobileFinance.controller.TransactionController',{
 
             this.getCategoryNavigationView().push({
                 xtype: 'category-setting', 
-                record: record,
+                record: record
             });
         }
         
@@ -143,7 +143,7 @@ Ext.define('MobileFinance.controller.TransactionController',{
 
     addCategory : function( button, e, eOpts) {
         this.getCategoryNavigationView().push({
-                    xtype: 'category-setting', 
+                    xtype: 'category-setting'
         });
 
         var form = this.getCategorySettingForm();

@@ -1,9 +1,9 @@
 Ext.define('MobileFinance.view.Home', {
-    extend: 'Ext.ux.slidenavigation.View',
+    extend: 'MobileFinance.ux.slidenavigation.View',
     xtype: 'homescreen',
 
     requires: [
-        //'MobileFinance.view.PieChartPanel'
+        
     ],
 
     config: {
@@ -33,7 +33,7 @@ Ext.define('MobileFinance.view.Home', {
                     centered: false,
                     width: 200,
                     left: 0
-                },
+                }
                 
                 /**
                  *  Here's an example of how to add a different type of
@@ -52,14 +52,14 @@ Ext.define('MobileFinance.view.Home', {
 
         defaults: {
             style: 'background: #ccc',
-            xtype: 'container',
+            xtype: 'container'
         },
 
        
         items: [{
             title: 'Transaktionsliste',
             //group: 'Group 1',
-            iconPath: "touch/resources/themes/images/default/pictos/sign_leftright2.png",
+            iconPath: "resources/pictos/sign_leftright2.png",
             /**
              *  Here's an example of how we can add a button into
              *  particular location.  In this case, it'll be added into the
@@ -68,7 +68,7 @@ Ext.define('MobileFinance.view.Home', {
             slideButton: {
                 selector: 'toolbar',
                 iconCls: 'more',
-                iconMask: true,
+                iconMask: true
             },
             items: [{
                 xtype: 'toolbar',
@@ -81,14 +81,14 @@ Ext.define('MobileFinance.view.Home', {
                     top: '7px',
                     left: '50px',
                     action: 'doTransactionRefresh'
-                }],
+                }]
                 },{
                     xtype: 'transactionpanel'
             }]
         },
         {
             title: 'Banking',
-            iconPath: 'touch/resources/themes/images/default/pictos/card2.png',
+            iconPath: 'resources/pictos/card2.png',
             //group: 'Group 1',
             /**
              *  Here's an example of how we can add a button into
@@ -98,7 +98,7 @@ Ext.define('MobileFinance.view.Home', {
             slideButton: {
                 selector: 'toolbar',
                 iconCls: 'more',
-                iconMask: true,
+                iconMask: true
             },
             items: [{
                 xtype: 'toolbar',
@@ -111,14 +111,14 @@ Ext.define('MobileFinance.view.Home', {
                     top: '7px',
                     left: '50px',
                     action: 'doCameraBankingCapture'
-                }],
+                }]
                 },{
                     xtype: 'banking-form-panel'
             }]
         },
         {
             title: 'Filialfinder',
-            iconPath: 'touch/resources/themes/images/default/pictos/locate4.png',
+            iconPath: 'resources/pictos/locate4.png',
             //group: 'Group 1',
             /**
              *  Here's an example of how we can add a button into
@@ -128,7 +128,7 @@ Ext.define('MobileFinance.view.Home', {
             slideButton: {
                 selector: 'toolbar',
                 iconCls: 'more',
-                iconMask: true,
+                iconMask: true
             },
             items: [{
                 xtype: 'toolbar',
@@ -144,7 +144,7 @@ Ext.define('MobileFinance.view.Home', {
         {
             title: 'Statistik',
             //group: 'Group 1',
-            iconPath: 'touch/resources/themes/images/default/pictos/chart2.png',
+            iconPath: 'resources/pictos/chart2.png',
             /**
              *  Here's an example of how we can add a button into
              *  particular location.  In this case, it'll be added into the
@@ -153,7 +153,7 @@ Ext.define('MobileFinance.view.Home', {
             slideButton: {
                 selector: 'toolbar',
                 iconCls: 'more',
-                iconMask: true,
+                iconMask: true
             },
             items: [{
                 xtype: 'toolbar',
@@ -168,7 +168,7 @@ Ext.define('MobileFinance.view.Home', {
         {
             title: 'Chat',
             //group: 'Group 1',
-            iconPath: 'touch/resources/themes/images/default/pictos/chat.png',
+            iconPath: 'resources/pictos/chat.png',
             /**
              *  Here's an example of how we can add a button into
              *  particular location.  In this case, it'll be added into the
@@ -177,7 +177,7 @@ Ext.define('MobileFinance.view.Home', {
             slideButton: {
                 selector: 'toolbar',
                 iconCls: 'more',
-                iconMask: true,
+                iconMask: true
             },
             items: [
                 {
@@ -192,7 +192,7 @@ Ext.define('MobileFinance.view.Home', {
         {
             title: 'News',
             //group: 'Group 1',
-            iconPath: 'touch/resources/themes/images/default/pictos/quote_black3.png',
+            iconPath: 'resources/pictos/quote_black3.png',
             /**
              *  Here's an example of how we can add a button into
              *  particular location.  In this case, it'll be added into the
@@ -201,7 +201,7 @@ Ext.define('MobileFinance.view.Home', {
             slideButton: {
                 selector: 'toolbar',
                 iconCls: 'more',
-                iconMask: true,
+                iconMask: true
             },
             items: [{
                 xtype: 'toolbar',
@@ -216,7 +216,7 @@ Ext.define('MobileFinance.view.Home', {
         {
             title: 'Logout',
             //group: 'Group 1',
-            iconPath: 'touch/resources/themes/images/default/pictos/stop2.png',
+            iconPath: 'resources/pictos/stop2.png',
             /**
              *  Here's an example of how we can add a button into
              *  particular location.  In this case, it'll be added into the
@@ -225,7 +225,7 @@ Ext.define('MobileFinance.view.Home', {
             slideButton: {
                 selector: 'toolbar',
                 iconCls: 'more',
-                iconMask: true,
+                iconMask: true
             },
             items: [{
                 xtype: 'toolbar',

@@ -11,7 +11,7 @@ Ext.define("MobileFinance.controller.LoginController", {
             },
             'button[action=submitLogout]': {
                 tap:  'doLogout'
-            },
+            }
             
         },
 
@@ -21,7 +21,7 @@ Ext.define("MobileFinance.controller.LoginController", {
                 xtype:'homescreen',
                 selector: 'homescreen',
                 autoCreate:true
-            },
+            }
         }
         
     },
@@ -40,7 +40,7 @@ Ext.define("MobileFinance.controller.LoginController", {
         var jsonObj = form.getValues();
         var json = JSON.stringify(jsonObj);
 
-        var url = MobileFinance.app.backendBaseUrl+'auth/login';
+        var url = MobileFinance.util.GlobalConf.javaBackendBaseUrl+'auth/login';
 
         Ext.Ajax.request({
             url: url,
@@ -78,7 +78,7 @@ Ext.define("MobileFinance.controller.LoginController", {
         // Receive allowed bankaccount id.
         var obj = Ext.decode(response.responseText);
         var allowedAccountId = obj.bodyData.allowedBankAccountId;
-        MobileFinance.app.currentBankAccount = allowedAccountId;
+        MobileFinance.util.GlobalConf.currentBankAccount = allowedAccountId;
 
         var hc = MobileFinance.app.getController('HomeController');
         var logout = hc.getLogout();
@@ -113,7 +113,7 @@ Ext.define("MobileFinance.controller.LoginController", {
     },
 
     doLogout: function() {
-        var url = MobileFinance.app.backendBaseUrl+'auth/logout';
+        var url = MobileFinance.util.GlobalConf.javaBackendBaseUrl+'auth/logout';
 
         Ext.Ajax.request({
             url: url,
@@ -137,7 +137,7 @@ Ext.define("MobileFinance.controller.LoginController", {
             }
         });
 
-    },
+    }
     
 });
 

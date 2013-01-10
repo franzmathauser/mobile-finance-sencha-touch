@@ -18,7 +18,7 @@ Ext.define('MobileFinance.store.IncomeOutcomeSaldos',{
             },
             headers: {
                 'Accept': 'application/json'
-            },
+            }
         }
     }
 })

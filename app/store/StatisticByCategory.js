@@ -35,7 +35,7 @@ Ext.define('MobileFinance.store.StatisticByCategory',{
             },
             headers: {
                 'Accept': 'application/json'
-            },
+            }
         }
     }
 })

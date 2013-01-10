@@ -2,17 +2,14 @@ Ext.Loader.setConfig({enabled:true});
 //<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'MobileFinance': 'app',
-    'Ext.ux':'ux',
+    'MobileFinance': 'app'
 });
 //</debug>
 
 Ext.application({
     name: 'MobileFinance',
 
-    backendBaseUrl : 'https://pc42366.de.softlab.net:8181/JavaBackend/rest/',
-
-    requires: ['Ext.MessageBox', 'Ext.Anim'],
+    requires: ['Ext.MessageBox', 'Ext.Anim' /*, 'MobileFinance.util.Socketio'*/],
 
     controllers: [ 
         'MainController', 
@@ -24,7 +21,8 @@ Ext.application({
         'GeoLocationController', 
         'TransactionController', 
         'PieChartController', 
-        'BankingController'
+        'BankingController',
+        'SupportMessageController'
     ],
 
     views: ['Main'],
@@ -56,6 +54,31 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('MobileFinance.view.Main'));
+
+        /*
+        Ext.device.Push.register({
+            type: Ext.device.Push.ALERT|Ext.device.Push.BADGE|Ext.device.Push.SOUND,
+            success: function(token) {
+                alert(token);
+                console.log('# Push notification registration successful:');
+                console.log('    token: ' + token);
+
+            },
+            failure: function(error) {
+                alert(error);
+                console.log('# Push notification registration unsuccessful:');
+                console.log('     error: ' + error);
+                
+            },
+            received: function(notifications) {
+                alert(JSON.stringify(notifications));
+                console.log('# Push notification received:');
+                console.log('    ' + JSON.stringify(notifications));
+                
+            }
+        });
+        */
+
     },
 
     onUpdated: function() {
@@ -68,46 +91,7 @@ Ext.application({
                 }
             }
         );
-    }, 
-    /** 
-    * configuration of pullrefresh for list components
-    */
-    pullRefreshPlugin : {
-        xclass: 'Ext.plugin.PullRefresh',
-        pullRefreshText: 'Ziehen um neue Daten zu laden!',
-        releaseRefreshText: 'Loslassen zum aktualisieren',
-        lastUpdatedText: 'Letzte Aktualisierung:',
-        loadingText: 'Datenladen...',
-        pullTpl: [
-            '<div class="x-list-pullrefresh">',
-                '<div class="x-list-pullrefresh-arrow"></div>',
-                '<div class="x-loading-spinner">',
-                    '<span class="x-loading-top"></span>',
-                    '<span class="x-loading-right"></span>',
-                    '<span class="x-loading-bottom"></span>',
-                    '<span class="x-loading-left"></span>',
-                '</div>',
-                '<div class="x-list-pullrefresh-wrap">',
-                    '<h3 class="x-list-pullrefresh-message">{message}</h3>',
-                    '<div class="x-list-pullrefresh-updated">{lastUpdatedText}&nbsp;{lastUpdated:date("d.m.Y h:iA")}</div>',
-                '</div>',
-            '</div>'
-        ].join('')
-    },
-
-    /** 
-    * configuration of infinitescrolling  for list components
-    */
-    infiniteScroll : {
-        xclass: 'Ext.plugin.ListPaging',
-        autoPaging: true,
-        loadMoreText: 'lade weitere Daten...'
-    },
-
-    /**
-    * status of allowed bankaccount-id, only this accound-id is 
-    * accessable thru the session user.
-    **/
-    currentBankAccount : -1
+    }
+    
 
 });

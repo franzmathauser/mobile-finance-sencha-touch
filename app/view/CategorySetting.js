@@ -15,17 +15,17 @@ Ext.define('MobileFinance.view.CategorySetting', {
                 title: 'Kategorie',
                 items: [{
                             xtype: 'hiddenfield',
-                            name: 'id',
+                            name: 'id'
                         },
                         {
                             xtype: 'hiddenfield',
-                            name: 'iconUrl',
+                            name: 'iconUrl'
                         },
                         {
                             xtype: 'textfield',
                             name: 'name',
                             label: 'Name'
-                        },
+                        }
                 ]
             },
             {

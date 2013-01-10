@@ -24,7 +24,7 @@ Ext.define('MobileFinance.controller.PlacesController', {
 	},
 
 	doPlaces: function() {
-        var url = MobileFinance.app.backendBaseUrl+'secure/places?location=48.13661,11.57709';
+        var url = MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/places?location=48.13661,11.57709';
 
         Ext.Ajax.request({
             url: url,

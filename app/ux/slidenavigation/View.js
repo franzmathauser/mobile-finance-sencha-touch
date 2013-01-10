@@ -5,7 +5,7 @@
  *
  *  @author Weston Nielson <wnielson@github>
  */
-Ext.define('Ext.ux.slidenavigation.View', {
+Ext.define('MobileFinance.ux.slidenavigation.View', {
     extend: 'Ext.Container',
     
     requires: [
@@ -16,7 +16,7 @@ Ext.define('Ext.ux.slidenavigation.View', {
         'Ext.Toolbar',
         'Ext.data.Model',
         'Ext.data.Store',
-        'Ext.dataview.List',
+        'Ext.dataview.List'
     ],
     
     xtype: 'slidenavigationview',
@@ -102,7 +102,7 @@ Ext.define('Ext.ux.slidenavigation.View', {
          * @cfg {Boolean} closeOnSelect Whether or not to automatically close the container
          * when an item in the list is selected.  Default is true.
          */
-        closeOnSelect: true,
+        closeOnSelect: true
 
     },
         
@@ -149,7 +149,7 @@ Ext.define('Ext.ux.slidenavigation.View', {
             listeners: {
                 release: me.toggleContainer,
                 scope: me
-            },
+            }
             /**
              *  To add the button into a toolbar, you can add the following
              *  to any item in your navigation list.

@@ -28,7 +28,7 @@ Ext.define('MobileFinance.view.statistics.BarChartPanel', {
         'Ext.chart.interactions.PanZoom',
         'Ext.chart.interactions.ItemHighlight',
         'Ext.chart.PolarChart',
-        'Ext.chart.interactions.ItemInfo',
+        'Ext.chart.interactions.ItemInfo'
         ],
 
    config: {

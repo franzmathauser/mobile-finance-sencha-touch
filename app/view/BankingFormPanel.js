@@ -15,12 +15,12 @@ Ext.define('MobileFinance.view.BankingFormPanel', {
               flex:1,
               items: [
                   {
-                    xtype: 'banking-form',
+                    xtype: 'banking-form'
                   }
               ]
             },{
                 xtype: 'panel',
-                width:'220px',
+                width:'220px'
             }
             
         ]

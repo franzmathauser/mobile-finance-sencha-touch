@@ -28,6 +28,7 @@ Ext.define('MobileFinance.controller.HomeController', {
 		stores: ['Stores', 'Transactions', 'Categories'],
 
 		controllers: ['AuthController', 'LoginController'],
+
 		models: ['Store', 'Transaction', 'Category'],
 
 		refs: {
@@ -35,13 +36,14 @@ Ext.define('MobileFinance.controller.HomeController', {
             slidenavigationview : 'slidenavigationview',
             storeFinderContainer : 'storefinder-container',
             transactioncontainer : 'transactionpanel',
-            statisticscontainer : 'charts-carousel'
+            statisticscontainer : 'charts-carousel',
+            chatpanelcontainer : 'chat-panel'
 
 		}, 
 
 		control:{
 			slidenavigationview : {
-				'onSelect' : 'doOnSelectHandling',
+				'onSelect' : 'doOnSelectHandling'
 			},
 
 			storeFinderContainer : {
@@ -53,6 +55,9 @@ Ext.define('MobileFinance.controller.HomeController', {
 			}, 
 			statisticscontainer : {
 				activate : 'loadStatistic'
+			},
+			chatpanelcontainer : {
+				activate : 'startWebsocketConnection'
 			}
 		}
 
@@ -79,19 +84,22 @@ Ext.define('MobileFinance.controller.HomeController', {
 	loadStatistic :  function(newActiveItem, oldActiveItem, eOpts) {
 		var statisticByCategories = Ext.getStore('StatisticByCategory');
 		var statisticByCategoriesProxy = statisticByCategories.getProxy();
-		statisticByCategoriesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byCategory');
+		statisticByCategoriesProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/bankaccount/'+MobileFinance.util.GlobalConf.currentBankAccount+'/statistic/byCategory');
 		statisticByCategories.load();
 
 		var monthlyCategories = Ext.getStore('MonthlyCategories');
 		var monthlyCategoriesProxy = monthlyCategories.getProxy();
-		monthlyCategoriesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/byMonthlyCategory?maxCategories=5');
+		monthlyCategoriesProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/bankaccount/'+MobileFinance.util.GlobalConf.currentBankAccount+'/statistic/byMonthlyCategory?maxCategories=5');
 		monthlyCategories.load();
 
 		var incomeOutcomeSaldos = Ext.getStore('IncomeOutcomeSaldos');
 		var incomeOutcomeSaldosProxy = incomeOutcomeSaldos.getProxy();
-		incomeOutcomeSaldosProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/bankaccount/'+MobileFinance.app.currentBankAccount+'/statistic/incomeOutcomeSaldo');
+		incomeOutcomeSaldosProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/bankaccount/'+MobileFinance.util.GlobalConf.currentBankAccount+'/statistic/incomeOutcomeSaldo');
 		incomeOutcomeSaldos.load();
-	},
-	
+	}, 
+
+	startWebsocketConnection : function(newActiveItem, oldActiveItem, eOpts) {
+		MobileFinance.app.getController("SupportMessageController").connectToSocket();
+	}
 	
 });

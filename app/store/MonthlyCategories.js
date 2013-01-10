@@ -18,7 +18,7 @@ Ext.define('MobileFinance.store.MonthlyCategories',{
             },
             headers: {
                 'Accept': 'application/json'
-            },
+            }
         }
     }
 })

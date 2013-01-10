@@ -6,14 +6,14 @@ Ext.define('MobileFinance.store.NewsChannel',{
         autoLoad: false,
         proxy: {
             type: 'ajax',
-            url: MobileFinance.app.backendBaseUrl+'newschannel',
+            url: MobileFinance.util.GlobalConf.javaBackendBaseUrl+'newschannel',
             reader: {
                 type: 'json',
                 rootProperty:'bodyData'
             },
             headers: {
                 'Accept': 'application/json'
-            },
+            }
         }
     }
 })

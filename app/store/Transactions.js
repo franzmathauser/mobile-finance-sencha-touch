@@ -24,7 +24,7 @@ Ext.define('MobileFinance.store.Transactions',{
             },
             headers: {
                 'Accept': 'application/json'
-            },
+            }
         }
     }
 })

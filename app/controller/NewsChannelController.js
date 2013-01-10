@@ -2,6 +2,7 @@ Ext.define('MobileFinance.controller.NewsChannelController', {
 	extend: 'Ext.app.Controller',
 
 	requires: [
+		'MobileFinance.util.GlobalConf',
         'Ext.data.Store',
         'Ext.plugin.PullRefresh',
         'Ext.plugin.ListPaging',

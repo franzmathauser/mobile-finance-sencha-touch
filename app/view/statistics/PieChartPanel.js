@@ -33,7 +33,7 @@ Ext.define('MobileFinance.view.statistics.PieChartPanel', {
         {
           interactions: ['rotate', 'itemhighlight'],
           legend: {
-            docked: 'bottom',
+            docked: 'bottom'
           },
           style: 'z-index: 5',
           xtype: 'polar',
@@ -50,7 +50,7 @@ Ext.define('MobileFinance.view.statistics.PieChartPanel', {
                   },
                   style: {
                       fillOpacity: 0.9,
-                      stroke: "#444",
+                      stroke: "#444"
                   },
                   subStyle: {
                       fillStyle: ["#115fa6", "#94ae0a", "#a61120", "#ff8809", "#ffd13e", "#a61187", "#24ad9a", "#7c7474", "#a66111"]

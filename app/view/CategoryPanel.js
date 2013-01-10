@@ -23,7 +23,7 @@ Ext.define('MobileFinance.view.CategoryPanel', {
                     iconMask: true,
                     id: 'add-category-button',
                     ui: 'action',
-                    hidden:true,
+                    hidden:true
                   },
                   {
                     align: 'right',
@@ -43,7 +43,7 @@ Ext.define('MobileFinance.view.CategoryPanel', {
                   itemTpl: '<img src="{iconUrl}" style="float:left;"/>'+
                      '<h1>{name:ellipsis(22)}</h1>',
                     
-                  itemCls: 'category-entry',
+                  itemCls: 'category-entry'
                   //plugins: [MobileFinance.app.pullRefreshPlugin]
                 }
                ]

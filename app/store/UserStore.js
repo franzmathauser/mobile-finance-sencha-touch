@@ -4,7 +4,7 @@ Ext.define("MobileFinance.store.UserStore", {
     config: {
         autoLoad: true 
     },
-    model: 'MobileFinance.model.UserModel',
+    model: 'MobileFinance.model.User',
     proxy: {
         type: 'localstorage',
         id: 'Username'

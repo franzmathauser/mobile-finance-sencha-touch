@@ -70,7 +70,7 @@ Ext.define('MobileFinance.controller.GeoLocationController',{
 
                     map.setMapCenter(new google.maps.LatLng(lat, lon));
                    
-                    storesProxy.setUrl(MobileFinance.app.backendBaseUrl+'secure/places?location='+lat+','+lon);
+                    storesProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/places?location='+lat+','+lon);
                     console.log(storesProxy);
                     stores.load();
                 },

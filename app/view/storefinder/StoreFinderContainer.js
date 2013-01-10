@@ -21,7 +21,7 @@ Ext.define('MobileFinance.view.storefinder.StoreFinderContainer', {
            {
                xtype: 'storefinder-panel',
                width: 300,
-               docked: 'left',
+               docked: 'left'
            },{
                xtype: 'container',
                layout: 'vbox',
@@ -29,8 +29,7 @@ Ext.define('MobileFinance.view.storefinder.StoreFinderContainer', {
                    {
                        xtype: 'storefinder-details',
                        flex: 2,
-                       baseCls: 'storefinder-details',
-
+                       baseCls: 'storefinder-details'
                    },{
                        xtype: 'map',
                        flex:10,

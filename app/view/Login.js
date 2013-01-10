@@ -36,8 +36,7 @@ Ext.define("MobileFinance.view.Login", {
                     placeHolder: 'Passwort',
                     name: 'password',
                     value: '?"::%"M@00&*.9m'
-
-                },
+                }
                 ]
             },
             {

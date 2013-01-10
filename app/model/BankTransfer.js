@@ -37,7 +37,7 @@ Ext.define('MobileFinance.model.BankTransfer', {
             },
             headers: {
                 'Accept': 'application/json'
-            },
+            }
         }
    }
    
