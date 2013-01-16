@@ -17,7 +17,6 @@ Ext.application({
         'NewsChannelController', 
         'AuthController', 
         'HomeController', 
-        'PlacesController', 
         'GeoLocationController', 
         'TransactionController', 
         'PieChartController', 
@@ -81,6 +80,9 @@ Ext.application({
 
     },
 
+    /**
+     * Event-Handler informs the user on source-changes.
+    **/
     onUpdated: function() {
         Ext.Msg.confirm(
             "Application Update",

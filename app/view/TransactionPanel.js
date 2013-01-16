@@ -33,7 +33,6 @@ Ext.define('MobileFinance.view.TransactionPanel', {
                       
                     itemCls: 'transaction-entry',
                     grouped: true,
-                    //indexBar: true,
                     allowDeselect : true, 
                     plugins: [MobileFinance.util.GlobalConf.pullRefreshPlugin]
                   }

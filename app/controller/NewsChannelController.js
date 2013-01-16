@@ -27,11 +27,19 @@ Ext.define('MobileFinance.controller.NewsChannelController', {
 		}
 	},
 
+	/**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
 	init: function(){
 		console.log('newschannel controller: inited');
 
 	}, 
 
+	/**
+     * @function loadNewsChannel 
+     * @description method loads the store with news-data.
+     */
 	loadNewsChannel: function() {
 		this.getNewsChannelList().getStore().load();
 	}

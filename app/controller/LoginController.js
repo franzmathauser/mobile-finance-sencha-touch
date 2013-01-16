@@ -25,16 +25,19 @@ Ext.define("MobileFinance.controller.LoginController", {
         }
         
     },
-
+    
+    /**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
     init: function(){
         console.log('login controller: inited');
     },
 
-    
-    test : function() {
-        alert('catched');
-    },
-
+    /**
+     * @function doLogin 
+     * @description method performs a login request against the backend.
+     */
     doLogin: function() {
         var form = this.getLoginForm();
         var jsonObj = form.getValues();
@@ -64,6 +67,10 @@ Ext.define("MobileFinance.controller.LoginController", {
 
     },
 
+    /**
+     * @function onLoginResponse 
+     * @description method checks success-metadata-flag.
+     */
     onLoginResponse: function(response, opts){
         var obj = Ext.decode(response.responseText);
         if(obj.success){
@@ -73,45 +80,48 @@ Ext.define("MobileFinance.controller.LoginController", {
         }
     },
 
+    /**
+     * @function onLoginSuccess 
+     * @description method shows home-screen and removes data of login-form.
+     */
     onLoginSuccess: function(response, opts){
         
         // Receive allowed bankaccount id.
         var obj = Ext.decode(response.responseText);
         var allowedAccountId = obj.bodyData.allowedBankAccountId;
+
         MobileFinance.util.GlobalConf.currentBankAccount = allowedAccountId;
 
         var hc = MobileFinance.app.getController('HomeController');
         var logout = hc.getLogout();
-
         var form = this.getLoginForm();
-        
         var jsonObj = form.setValues({
             username: "",
             password: ""
         });
         
- 
-        //logout.getComponent('LogoutFieldset').getComponent('LogoutUsername').setValue(username);
-
         var items = Ext.Viewport.getItems();
-        //logout.previousView = items.items[0];
-        //Ext.Viewport.animateActiveItem(login.previousView, hc.slideRightTransition);
-
-
-
         var home = this.getHome();
-
         var items = Ext.Viewport.getItems();
+
         home.previousView = items.items[0];
 
         Ext.Viewport.animateActiveItem(home,{ type: 'slide', direction: 'left'});
         home.openContainer();
     },
 
+    /**
+     * @function onLoginFailure 
+     * @description method shows asynchronous alert if login-request was not successful.
+     */
     onLoginFailure: function(response, opts){
         Ext.Msg.alert('Login fehlgeschlagen', 'Benutzer oder Passwort falsch', Ext.emptyFn);
     },
 
+    /**
+     * @function doLogout 
+     * @description method performs a logout request against the backend, to destroy the session.
+     */
     doLogout: function() {
         var url = MobileFinance.util.GlobalConf.javaBackendBaseUrl+'auth/logout';
 
@@ -127,7 +137,6 @@ Ext.define("MobileFinance.controller.LoginController", {
             },
 
             success: function(response) {
-                //var auth = Ext.app.Application.getController("MobileFinance.controller.Auth");
                 var auth = MobileFinance.app.getController("AuthController");
                 auth.slideToLoginPanel();
             },

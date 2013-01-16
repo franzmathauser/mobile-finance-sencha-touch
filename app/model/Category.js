@@ -1,8 +1,12 @@
 Ext.define('MobileFinance.model.Category', {
-   extend: 'Ext.data.Model',
+	extend: 'Ext.data.Model',
    
-   config: {
-       fields: ['id', 'name', 'iconUrl']
-   }
+	config: {
+		fields: [
+			'id',
+			'name',
+			'iconUrl'
+		]
+	}
    
 });

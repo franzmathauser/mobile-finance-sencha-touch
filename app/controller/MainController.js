@@ -8,6 +8,10 @@ Ext.define('MobileFinance.controller.MainController', {
 		controllers: ['AuthController']
 	},
 
+	/**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
 	init: function(){
 		console.log('main controller: inited');
 

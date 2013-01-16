@@ -13,7 +13,6 @@ Ext.define('MobileFinance.view.statistics.RadarChartContainer', {
 
         },
         {
-            html: 'message preview',
             style: 'background-color: #759E60;',
             flex: 1
         }

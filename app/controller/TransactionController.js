@@ -53,28 +53,39 @@ Ext.define('MobileFinance.controller.TransactionController',{
     */
     editCategoryToggle : false,
     
+    /**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
     init: function() {
         console.log('transaction controller: inited ');
         this.categoryPanel = Ext.createByAlias('widget.categorypanel', {hidden:true, width: 300, height:400, hideOnMaskTap:true });
     }, 
 
+    /**
+     * @function doRequest 
+     * @description method receive transaction-data from backend service.
+     */
     doRequest: function() {
         
         var transactions = Ext.getStore('Transactions');
-
         var transactionsProxy = transactions.getProxy();
+        
         transactionsProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/bankaccount/'+MobileFinance.util.GlobalConf.currentBankAccount+'/transactions');
-
         transactions.load();
     }, 
 
+    /**
+     * @function showCategoryMenue 
+     * @description method shows configured categories as list.
+     */
     showCategoryMenue: function( item, index, target, record, e, eOpts) {
         var categoryId = record.data.categoryId;
+        var categories = Ext.getStore('Categories');
+        var categoriesProxy = categories.getProxy();
+
         this.selectedTransaction = record.data.id;
 
-        var categories = Ext.getStore('Categories');
-
-        var categoriesProxy = categories.getProxy();
         categoriesProxy.setUrl(MobileFinance.util.GlobalConf.javaBackendBaseUrl+'secure/bankaccount/'+MobileFinance.util.GlobalConf.currentBankAccount+'/categories');
 
         categories.load({
@@ -93,6 +104,10 @@ Ext.define('MobileFinance.controller.TransactionController',{
         
     }, 
 
+    /**
+     * @function selectCategory 
+     * @description method add or changes a category of transaction.
+     */
     selectCategory: function(item, index, target, record, e, eOpts) {
 
 
@@ -117,7 +132,6 @@ Ext.define('MobileFinance.controller.TransactionController',{
             transactions.sync();
         } else {
 
-
             this.getCategoryNavigationView().push({
                 xtype: 'category-setting', 
                 record: record
@@ -126,6 +140,10 @@ Ext.define('MobileFinance.controller.TransactionController',{
         
     },
 
+    /**
+     * @function editCategory 
+     * @description method changes toggle-button for edit or select mode of categories.
+     */
     editCategory : function( button, e, eOpts) {
         if(this.editCategoryToggle) {
             //close bearbeiten
@@ -141,6 +159,10 @@ Ext.define('MobileFinance.controller.TransactionController',{
         
     },
 
+    /**
+     * @function addCategory 
+     * @description method show category-input form.
+     */
     addCategory : function( button, e, eOpts) {
         this.getCategoryNavigationView().push({
                     xtype: 'category-setting'
@@ -150,6 +172,10 @@ Ext.define('MobileFinance.controller.TransactionController',{
         form.reset();
     },
 
+    /**
+     * @function doCategorySubmit 
+     * @description method changes or adds a category to the backend.
+     */
     doCategorySubmit : function( button, e, eOpts) {
         var form = this.getCategorySettingForm();
         var catObj = form.getValues();
@@ -171,6 +197,10 @@ Ext.define('MobileFinance.controller.TransactionController',{
         this.getCategoryNavigationView().pop();
     },
 
+    /**
+     * @function doCategoryDelete 
+     * @description method removes a category in backend.
+     */
     doCategoryDelete : function( button, e, eOpts) {
         var form = this.getCategorySettingForm();
         var catObj = form.getValues();
@@ -182,6 +212,10 @@ Ext.define('MobileFinance.controller.TransactionController',{
         this.getCategoryNavigationView().pop();
     },
 
+    /**
+     * @function doBack 
+     * @description method refreshes the category-list afer returning to the category-list-view.
+     */
     doBack : function(me, eOpts) {
         this.getCategoryList().refresh();
     }

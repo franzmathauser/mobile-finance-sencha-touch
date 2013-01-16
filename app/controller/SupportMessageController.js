@@ -22,7 +22,7 @@ Ext.define('MobileFinance.controller.SupportMessageController', {
 	},
 
 	/**
-     * @ inti 
+     * @function inti 
      * @description method called after initialization of controller
      */
 	init: function(){
@@ -34,13 +34,15 @@ Ext.define('MobileFinance.controller.SupportMessageController', {
 
 	}, 
 
+	/**
+     * @function initSocketConnection 
+     * @description method initializes the websocket object.
+     */
 	initSocketConnection: function() {
 		this.chatStore = Ext.getStore('SupportMessages');
 		this.configStore = Ext.StoreMgr.get('ConfigStore');
 
 		this.socket = new MobileFinance.util.Socketio(MobileFinance.util.GlobalConf.nodejsBackendBaseUrl);
-
-		//this.socket.connect();
 
 		// Event Listener
 		this.socket.on(
@@ -48,7 +50,6 @@ Ext.define('MobileFinance.controller.SupportMessageController', {
 			function(){
 					this.sendMessageToServer('connection established.'); 
 			},
-			//this.registerUser,
 			this
 		);
 
@@ -65,14 +66,26 @@ Ext.define('MobileFinance.controller.SupportMessageController', {
 		);
 	},
 
+	/**
+     * @function connectToSocket 
+     * @description method establishes the websocket-connection
+     */
 	connectToSocket: function(){
 		this.socket.connect();
 	},
 
+	/**
+     * @function sendMessageToServer 
+     * @description method sends message thru websocket.
+     */
 	sendMessageToServer: function(msg){
 		this.socket.send(msg);
 	},
 
+	/**
+     * @function addMessageToChatStore 
+     * @description method handles received websocket-messages.
+     */
 	addMessageToChatStore: function(data) {
 		this.chatStore.add({xindex:data.xindex, user:data.user, message:data.message});
 		var listScroller = this.getChatMessageProtocol().getScrollable().getScroller()
@@ -80,16 +93,10 @@ Ext.define('MobileFinance.controller.SupportMessageController', {
 
 	},
 
-	registerUser: function() {
-
-		var user = {
-			nickname: 'franz',
-			gravatar: 'banker'
-		};
-		
-		this.socket.send(user);
-	}, 
-
+	/**
+     * @function doSendMessage 
+     * @description button-handler reads input-field value and passes the information to send method.
+     */
 	doSendMessage : function() {
 		var msg = this.getChatMessageField().getValue();
 		this.sendMessageToServer(msg);

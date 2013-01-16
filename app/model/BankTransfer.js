@@ -1,8 +1,8 @@
 Ext.define('MobileFinance.model.BankTransfer', {
-   extend: 'Ext.data.Model',
+    extend: 'Ext.data.Model',
    
-   config: {
-        fields: [
+    config: {
+      fields: [
        		{name: 'name', type: 'string'},
        		{name: 'accountNumber', type: 'int'},
        		{name: 'bankCode', type: 'int'},
@@ -39,6 +39,6 @@ Ext.define('MobileFinance.model.BankTransfer', {
                 'Accept': 'application/json'
             }
         }
-   }
+    }
    
 });

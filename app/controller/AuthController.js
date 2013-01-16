@@ -3,7 +3,6 @@ Ext.define('MobileFinance.controller.AuthController', {
 
 	config:{
 		
-		//views: ['Main', 'Login'],
 		refs: {
 			main:'main'
 		}
@@ -78,6 +77,10 @@ Ext.define('MobileFinance.controller.AuthController', {
   		delete options.callback;
 	},
 
+	/**
+	* @function slideToLoginPanel
+    * @description slides the login mask on the top of the screen.
+	*/
 	slideToLoginPanel: function(){
 		var main = this.getMain();
 

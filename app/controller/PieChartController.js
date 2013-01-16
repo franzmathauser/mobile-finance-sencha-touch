@@ -7,6 +7,10 @@ Ext.define('MobileFinance.controller.PieChartController', {
 		
 	},
 
+	/**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
 	init: function(){
 		console.log('piechart controller: inited');
 	}

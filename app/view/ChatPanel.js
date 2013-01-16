@@ -1,24 +1,3 @@
-var myStore = Ext.create("Ext.data.Store", {
-    fields: ['xindex', 'gravatar', 'user', 'message'],
-    autoload:true,
-    data: [
-        { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
-        { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
-        { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
-        { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
-        { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! '},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
-        { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'},
-        { xindex: 1, gravatar: 'franz.png', user:'franz', message: 'Hello World!'},
-        { xindex: 2, gravatar: 'franz.png', user:'bank', message: 'Foo Bar!'}
-    ]
-});
-
 Ext.define('MobileFinance.view.ChatPanel', {
     extend: 'Ext.Panel',
     alias: "widget.chat-panel",

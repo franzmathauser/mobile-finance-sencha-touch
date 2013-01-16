@@ -1,8 +1,12 @@
 Ext.define('MobileFinance.model.News', {
-   extend: 'Ext.data.Model',
+	extend: 'Ext.data.Model',
    
-   config: {
-       fields: ['message', 'date', 'image']
-   }
+	config: {
+		fields: [
+			'message',
+			'date',
+			'image'
+		]
+	}
     
 });

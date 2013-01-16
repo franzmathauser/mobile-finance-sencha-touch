@@ -1,6 +1,5 @@
 Ext.define('MobileFinance.view.BankInfoPanel', {
     extend: 'Ext.Panel',
-    //xtype: 'main',
     alias: "widget.bank-info-panel",
 
     requires: [

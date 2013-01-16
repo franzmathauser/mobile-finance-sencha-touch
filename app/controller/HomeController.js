@@ -63,24 +63,44 @@ Ext.define('MobileFinance.controller.HomeController', {
 
 	},
 
+	/**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
 	init: function(){
 		console.log('home controller: inited');
 	},
 
+	/**
+     * @function doOnSelectHandling 
+     * @description deligates the logout thru calling doLogout on LoginController.
+     */
 	doOnSelectHandling: function(item){
  		if(item.raw.items[0].title == "Logout"){
 			MobileFinance.app.getController('LoginController').doLogout();
         }
 	},
 
+	/**
+     * @function loadStoreFinderList 
+     * @description deligates the location-call thru calling doGeoRequest on GeoLocationController.
+     */
 	loadStoreFinderList : function(newActiveItem, oldActiveItem, eOpts) {
 		MobileFinance.app.getController("GeoLocationController").doGeoRequest();
 	},
 
+	/**
+     * @function loadTransactionList 
+     * @description deligates the transaction-list-request thru calling doRequest on TransactionController.
+     */
 	loadTransactionList : function(newActiveItem, oldActiveItem, eOpts) {
 		MobileFinance.app.getController("TransactionController").doRequest();
 	},
 
+	/**
+     * @function loadStatistic 
+     * @description autoload the statistic data.
+     */
 	loadStatistic :  function(newActiveItem, oldActiveItem, eOpts) {
 		var statisticByCategories = Ext.getStore('StatisticByCategory');
 		var statisticByCategoriesProxy = statisticByCategories.getProxy();
@@ -98,6 +118,10 @@ Ext.define('MobileFinance.controller.HomeController', {
 		incomeOutcomeSaldos.load();
 	}, 
 
+	/**
+     * @function loadStatistic 
+     * @description deligates the websocket-connection thru calling connectToSocket on SupportMessageController.
+     */
 	startWebsocketConnection : function(newActiveItem, oldActiveItem, eOpts) {
 		MobileFinance.app.getController("SupportMessageController").connectToSocket();
 	}

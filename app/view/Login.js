@@ -44,17 +44,7 @@ Ext.define("MobileFinance.view.Login", {
                 ui: 'confirm',
                 text: 'Anmelden',
                 action: 'submitLogin'
-            }/*,{
-                xtype: 'button',
-                ui: 'confirm',
-                text: 'Logout',
-                action: 'submitLogout'
-            },{
-                xtype: 'button',
-                ui: 'confirm',
-                text: 'Request Places',
-                action: 'submitPlaces'
-            }*/
+            }
         ]
     	
     }

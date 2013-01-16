@@ -25,14 +25,22 @@ Ext.define('MobileFinance.controller.BankingController',{
         }
     },
 
+    /**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
     init: function() {
         console.log('banking controller: inited ');
     }, 
 
+    /**
+     * @function inti 
+     * @description open the native camera-view in hybrid-app. sends the taken picture as base64-encoded file to the service.
+     */
     doCamera: function() {
         
         console.log('camera button pressed');
-var base64 = '';
+        var base64 = '';
         Ext.device.Camera.capture({
 
             success: function(base64) {
@@ -67,6 +75,10 @@ var base64 = '';
 
     }, 
 
+    /**
+     * @function onOcrSuccess 
+     * @description callback-method shows returned ocr-data in banking-form
+     */
     onOcrSuccess: function(response, opts){
         var obj = Ext.decode(response.responseText);
         if(obj.success){
@@ -75,6 +87,10 @@ var base64 = '';
         }
     },
 
+    /**
+     * @function doBankTransferSubmit 
+     * @description sends banking-form values to rest-service.
+     */
     doBankTransferSubmit: function() {
         console.log('send bank transfer');
         var form = this.getBankingForm();

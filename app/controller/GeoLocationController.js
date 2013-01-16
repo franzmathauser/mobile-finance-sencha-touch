@@ -47,6 +47,10 @@ Ext.define('MobileFinance.controller.GeoLocationController',{
         }
     },
     
+    /**
+     * @function inti 
+     * @description method called after initialization of controller
+     */
     init: function(){
         
         this.currentMarker = new google.maps.Marker({
@@ -55,6 +59,10 @@ Ext.define('MobileFinance.controller.GeoLocationController',{
         });
     }, 
 
+    /**
+     * @function doGeoRequest 
+     * @description method doGeoRequest receives geo-location-data  from the device. in a second step those geo-data is passed to the banking-finder service.
+     */
     doGeoRequest: function() {
         console.log(Ext.device);
         Ext.device.Geolocation.getCurrentPosition({
